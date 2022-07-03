@@ -175,7 +175,47 @@ export default {
           },
         ]
       },
-       {
+      {
+        company: "BTC Power",
+        position: "Software Developer (Project Based)",
+        year: 'May 2021 - June 2021',
+        color: 'indigo',
+        duties: [
+          {
+            duty: "Designed and Developed Time Keeping Sytem."
+          },
+          {
+            duty: "Integrate application to card reader device."
+          },
+          {
+            duty: "Trained and assisted users on how to used the application."
+          }
+        ],
+        projects: [
+           {
+            name: "Time Keeping Systems",
+            details: " - The application captures employee clock In/Out and displays employee information and logs to screen.",
+            technologies: [
+              {
+                tech: "Desktop Application"
+              },
+              {
+                tech: "WinForms"
+              },
+              {
+                tech: "C#"
+              },
+              {
+                tech: "MS Access"
+              },
+              {
+                tech: "Visual Studio"
+              },
+            ],
+          },
+        ],
+      },
+      {
         company: "New Yutek Hardware",
         position: "Software Developer | System Administrator (Project Based)",
         year: 'March 2018 - June 2019',

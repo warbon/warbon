@@ -5,9 +5,10 @@
         <div class="text-h1">
           Wilfredo Baladya Arbon Jr.
         </div>
-        <blockquote class="blockquote">
+         <v-divider class="my-4"></v-divider>
+         <div class="text-h5">
           Software Developer | IT Professional
-        </blockquote>
+        </div>
       </v-col>
       <v-col class="text-center" cols="12" md="6">
       <v-img

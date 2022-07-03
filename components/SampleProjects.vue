@@ -1,11 +1,11 @@
 <template>
     <section class="mb-10">
         <div class="text-h5 my-5 ">
-            SAMPLE PROJECTS
+            PERSONAL PROJECTS
         </div>
         <v-divider></v-divider>
         <v-card elevation="0" color="transparent">
-            <v-list three-line>
+            <v-list three-line color="transparent">
                 <v-list-item v-for="project in projects" :key="project.name">
                     <v-list-item-icon>
                         <v-icon color="green">
@@ -18,7 +18,7 @@
                         <v-list-item-subtitle class="ma-2" v-text="project.details"></v-list-item-subtitle>
                         <v-list-item-subtitle class="ma-2">
                             Project Link: 
-                            <a href="https://nicole-closet.herokuapp.com/">
+                            <a :href="project.link">
                               {{ project.link }}
                             </a>
                         </v-list-item-subtitle>
@@ -84,7 +84,7 @@ export default {
             },
             {
                 name: "Event Calendar",
-                details: " - A sample project of calendar of events.",
+                details: " - A sample project for calendar of events.",
                 link: "https://event-calendaryo.herokuapp.com/",
                 account: "NA",
                 technologies: [
@@ -134,6 +134,38 @@ export default {
                     },
                     {
                         tech: "MySQL"
+                    },
+                    {
+                        tech: "Github"
+                    },
+                    {
+                        tech: "VS Code"
+                    },
+                    {
+                        tech: "Vuetify"
+                    },
+                    {
+                        tech: "Heroku"
+                    },
+                    {
+                        tech: "Git"
+                    },
+                ],
+            },
+            {
+                name: "Personal Portfolio",
+                details: " - My Personal Portfolio",
+                link: "https://warbon.herokuapp.com/",
+                account: "NA",
+                technologies: [
+                    {
+                        tech: "VueJS"
+                    },
+                    {
+                        tech: "NuxtJS"
+                    },
+                    {
+                        tech: "Javascript"
                     },
                     {
                         tech: "Github"
