@@ -21,8 +21,8 @@
       >
        <v-rating
       v-model="skill.rating"
-      background-color="purple lighten-3"
-      :color="skill.color"
+      background-color="green lighten-3"
+      color="green"
       length="5"
       meduim
       readonly

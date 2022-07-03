@@ -10,8 +10,8 @@
       <blockquote class="blockquote">
         Innovative IT Professional with more than 12 years of experience in
         designing and developing software solutions to help improve business processes.
-        I handled many projects using different kinds of programming frameworks.
-        And have several years of experience in IT Operations, Administering Servers/Sata Centers 
+        I handled many projects using different kinds of programming languages, frameworks, technologies and tools.
+        And have several years of experience in IT Operations, Administering Servers
         and Network Infrastructures.
         <!-- <footer>
           <small>

@@ -5,7 +5,7 @@
       <div id="smooth-wrapper">
   <div id="smooth-content">
       <about-me id="aboutme" data-speed="0.5" />
-      <summary-info/>
+      <summary-info id="summary"/>
       <work-experiences id="work" data-speed="0.8"/>
       <sample-projects id="sample"/>
       <skills id="skills" />
@@ -91,7 +91,6 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SummaryInfo from "~/components/SummaryInfo.vue";
 // import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 export default {
@@ -100,6 +99,8 @@ export default {
         //   smooth: 2,   // seconds it takes to "catch up" to native scroll position
         //   effects: true // look for data-speed and data-lag attributes on elements and animate accordingly
         // });
+        gsap.fromTo("#aboutme", { opacity: 0, x: -500 }, { opacity: 1, x: 1, duration: 3 });
+         gsap.fromTo("#summary", { opacity: 0, x: 500 }, { opacity: 1, x: 1, duration: 3 });
         gsap.fromTo("#work", { opacity: 0, x: -500 }, { opacity: 1, x: 1, duration: 3 });
         gsap.fromTo("#sample", { opacity: 0, x: 500 }, { opacity: 1, x: 1, duration: 3 });
         gsap.fromTo("#edu", { opacity: 0, x: -500 }, { opacity: 1, x: 1, duration: 3 });
@@ -119,7 +120,7 @@ export default {
         //  duration: 1
         // });
     },
-    components: { SummaryInfo }
+
 }
 
 </script>
