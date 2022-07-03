@@ -7,24 +7,17 @@
   <v-sheet color="transparent" class="mt-10">
    <v-row>
     <v-col class="text-center">
-      <!-- <img
-        src="/v.png"
-        alt="Vuetify.js"
-        class="mb-5"
-      > -->
-
-      <div class="text-h2">
-        Wilfredo B. Arbon Jr
-      </div>
       <blockquote class="blockquote">
-        Innovative IT Professional with more than ten years of experience in
+        Innovative IT Professional with more than 12 years of experience in
         designing and developing software solutions to help improve business processes.
-        And have several years of experience in administering servers/data centers and network infrastructures.
-        <footer>
+        I handled many projects using different kinds of programming frameworks.
+        And have several years of experience in IT Operations, Administering Servers/Sata Centers 
+        and Network Infrastructures.
+        <!-- <footer>
           <small>
             <em>Software Developer | IT Professional</em>
           </small>
-        </footer>
+        </footer> -->
       </blockquote>
     </v-col>
   </v-row>
