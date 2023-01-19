@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="www.warbon.me">
-      <img alt="Hi 👋" src="https://github.com/warbon/warbon/blob/master/static/avatar1.png" width="260"/>
+      <img alt="Hi 👋" src="https://github.com/warbon/warbon/blob/master/static/avatar1.png" width="460"/>
   </a>
 </p>
 
