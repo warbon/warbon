@@ -10,7 +10,7 @@
 
 ## 🎧 Spotify Playing
 
-[![Spotify](https://spotify-readme.warbon.me/api/spotify?background_color=0d1117&border_color=ffffff)](https://open.spotify.com/user/omnitenebris)
+[![Spotify](https://spotify-readme.warbon.me/api/spotify?background_color=0d1117&border_color=ffffff)](https://open.spotify.com/user/22kjfgytbca6mhrblint7e22a)
 
 
 
