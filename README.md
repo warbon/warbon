@@ -1,6 +1,6 @@
 
 
-# Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif) I'm Wilfredo Arbon (💻☕)
+# Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif) I'm Wilfredo Arbon (💻☕🍣)
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=30&pause=1000&color=3C9C22&width=435&lines=Full+Stack+Web+Developer;Technology+Enthusiast;and+a+Coffee+Lover.;Nice+meeting+you...)](https://git.io/typing-svg)
 
