@@ -8,8 +8,8 @@
 * ✉️  You can contact me at [arbon.wilfredo@gmail.com](mailto:arbon.wilfredo@gmail.com)
 * 🧠  I'm learning about on how to eat 🍣 🍜 using the 🥢
 * 🤝  I'm open to collaborating on any ☕ projects 
-* ⚡  I'm your friendly neighborhood...  ![image](https://user-images.githubusercontent.com/49578176/222321389-37159d2c-5976-4fd8-bb34-70a43625bd14.png)
-
+* 🕸️  I'm your friendly neighborhood... 🤫
+* 🚀  I'm the captain of my own 🚢
 <br>
 
 ## 🌍 Social
