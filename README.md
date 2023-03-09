@@ -18,7 +18,7 @@
 
 <br>
 
-## 🔧 Technologies
+## 🔧 Skills
 
 [![My Skills](https://skillicons.dev/icons?i=vue,nuxtjs,laravel,js,html,css,azure,cs,dotnet,git,heroku,mysql,postman,supabase,ts,vercel,visualstudio,vscode,tailwind,github&perline=10)](https://warbon.me)
 
