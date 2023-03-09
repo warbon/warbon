@@ -10,6 +10,7 @@
 * 🤝  I'm open to collaborating on any ☕ projects 
 * 🕸️  I'm your friendly neighborhood... 🤫
 * 🚀  I'm the captain of my own 🚢
+* 🎯  I'm presently dedicating my efforts to https://hgateway.vercel.app/
 <br>
 
 ## 🌍 Social
