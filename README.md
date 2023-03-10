@@ -9,7 +9,7 @@
 * 🧠  I'm learning about on how to eat 🍣 🍜 using the 🥢
 * 🤝  I'm open to collaborating on any ☕ projects 
 * 🕸️  I'm your friendly neighborhood... 🤫
-* 🚀  I'm the captain of my own 🚢
+* 💪  Do your best and GOD will do the rest.. 🙏
 * 🎯  I'm presently dedicating my efforts to [HGwateway Project](https://hgateway.vercel.app)
 <br>
 
