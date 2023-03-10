@@ -28,7 +28,10 @@
 ## 🕘 Free Time
 * 📘 Trying hard writer https://warbon.gitbook.io/
 * 🅱️ Feeling Blogger https://blog.warbon.me/
-* 🧠 Learning Web3 🌐
+* 🧠 Learning Web3 
+      - https://thirdweb.com/
+      - https://web3.hashnode.com/
+      - https://learn.metamask.io/  
 
 
 <br>
