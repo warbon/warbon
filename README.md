@@ -26,12 +26,12 @@
 <br>
 
 ## 🕘 Free Time
-* 📘 Trying hard writer https://warbon.gitbook.io/
-* 🅱️ Feeling Blogger https://blog.warbon.me/
-* 🧠 Learning Web3 
-      - https://thirdweb.com/
-      - https://web3.hashnode.com/
-      - https://learn.metamask.io/  
+* ✍️ Trying hard writer 👉 [Building a Web Application with Vue, Nuxt, and Laravel Web API in Homestead](https://warbon.gitbook.io)
+* 🅱️ Feeling Blogger 🤭 [Personal Blog](https://blog.warbon.me)
+* 🧠 Learning Web3 🕸️ <br/>
+        - https://thirdweb.com/ <br/>
+        - https://web3.hashnode.com/ <br/>
+        - https://learn.metamask.io/  
 
 
 <br>
