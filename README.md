@@ -10,7 +10,7 @@
 * 🤝  I'm open to collaborating on any ☕ projects 
 * 🕸️  I'm your friendly neighborhood... 🤫
 * 💪  Do your best and GOD will do the rest.. 🙏
-* 🎯  I'm presently dedicating my efforts to [HGwateway Project](https://hgateway.vercel.app)
+* 🎯  I'm presently dedicating my efforts to [acware.tech](https://acware.tech)
 <br>
 
 ## 🌍 Social
