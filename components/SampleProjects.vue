@@ -152,38 +152,38 @@ export default {
                     },
                 ],
             },
-            {
-                name: "Personal Portfolio",
-                details: " - My Personal Portfolio",
-                link: "https://warbon.herokuapp.com/",
-                account: "NA",
-                technologies: [
-                    {
-                        tech: "VueJS"
-                    },
-                    {
-                        tech: "NuxtJS"
-                    },
-                    {
-                        tech: "Javascript"
-                    },
-                    {
-                        tech: "Github"
-                    },
-                    {
-                        tech: "VS Code"
-                    },
-                    {
-                        tech: "Vuetify"
-                    },
-                    {
-                        tech: "Heroku"
-                    },
-                    {
-                        tech: "Git"
-                    },
-                ],
-            },
+            // {
+            //     name: "Personal Portfolio",
+            //     details: " - My Personal Portfolio",
+            //     link: "https://warbon.herokuapp.com/",
+            //     account: "NA",
+            //     technologies: [
+            //         {
+            //             tech: "VueJS"
+            //         },
+            //         {
+            //             tech: "NuxtJS"
+            //         },
+            //         {
+            //             tech: "Javascript"
+            //         },
+            //         {
+            //             tech: "Github"
+            //         },
+            //         {
+            //             tech: "VS Code"
+            //         },
+            //         {
+            //             tech: "Vuetify"
+            //         },
+            //         {
+            //             tech: "Heroku"
+            //         },
+            //         {
+            //             tech: "Git"
+            //         },
+            //     ],
+            // },
         ],
     }),
 }

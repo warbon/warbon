@@ -7,6 +7,8 @@
       <about-me id="aboutme" data-speed="0.5" />
       <summary-info id="summary"/>
       <work-experiences id="work" data-speed="0.8"/>
+      <other-projects id="others"/>
+      <website-projects id="website" />
       <sample-projects id="sample"/>
       <skills id="skills" />
       <education id="edu" data-speed="1.5"/>
@@ -91,9 +93,12 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import OtherProjects from '~/components/OtherProjects.vue';
+import WebsiteProjects from '~/components/WebsiteProjects.vue';
 // import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 export default {
+  components: { OtherProjects, WebsiteProjects },
     mounted() {
         // const smoother = ScrollSmoother.create({
         //   smooth: 2,   // seconds it takes to "catch up" to native scroll position
