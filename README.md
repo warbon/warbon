@@ -8,7 +8,7 @@
 * ✉️  You can contact me at [warbon@acware.tech](mailto:warbon@acware.tech)
 * 🧠  I'm learning about on how to eat 🍣 🍜 using the 🥢
 * 🤝  I'm open to collaborating on any ☕ projects 
-* 🕸️  I'm your friendly neighborhood... 🤫
+* 🤫  I'm your friendly neighborhood... 🕸️
 * 💪  Do your best and GOD will do the rest.. 🙏
 * 🎯  I'm presently dedicating my efforts to [acware.tech](https://acware.tech)
 <br>
@@ -28,9 +28,11 @@
 <br>
 
 ## 🕘 Free Time
+<!---
 * ✍️ Trying hard writer 👉 [Building a Web Application with Vue, Nuxt, and Laravel Web API in Homestead](https://warbon.gitbook.io)
-* 🅱️ Feeling Blogger 🤭 [Personal Blog](https://blog.warbon.dev)
-* 🧠 Learning Web3 🕸️ <br/>
+-->
+* ✍️ Trying hard Blogger 🅱️ [Personal Blog](https://blog.warbon.dev)
+* 🧠 Understanding Web3 🕸️ <br/>
         - https://thirdweb.com/ <br/>
         - https://web3.hashnode.com/ <br/>
         - https://learn.metamask.io/  
