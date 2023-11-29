@@ -5,17 +5,23 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=30&pause=1000&color=3C9C22&width=435&lines=Full+Stack+Web+Developer;Technology+Enthusiast;and+a+Coffee+Lover.;Nice+meeting+you...)](https://git.io/typing-svg)
 
 * 🖥️  See my portfolio at [warbon.dev](https://warbon.dev)
+* ✉️  You can contact me at [wilfredo@eqho.ai](mailto:wilfredo@eqho.ai)
+<!---
 * ✉️  You can contact me at [warbon@acware.tech](mailto:warbon@acware.tech)
+--->
 * 🧠  I'm learning about on how to eat 🍣 🍜 using the 🥢
 * 🤝  I'm open to collaborating on any ☕ projects 
 * 🤫  I'm your friendly neighborhood... 🕸️
 * 💪  Do your best and GOD will do the rest.. 🙏
+* 🎯  I'm presently dedicating my efforts to [eqho.ai](https://eqho.ai)
+<!---
 * 🎯  I'm presently dedicating my efforts to [acware.tech](https://acware.tech)
+--->
 <br>
 
 ## 🌍 Social
 
-<p align="left"> <a href="https://discord.com/users/warbon#5506" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/discord.svg" width="32" height="32" /></a> <a href="https://www.facebook.com/wilfredo.arbon" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/facebook.svg" width="32" height="32" /></a> <a href="https://www.github.com/warbon" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg" width="32" height="32" /></a> <a href="https://www.linkedin.com/in/wilfredo-arbon" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg" width="32" height="32" /></a> <a href="https://www.twitter.com/776172626f6e" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter.svg" width="32" height="32" /></a>
+<p align="left"> <a href="https://discord.com/users/warbon#5506" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/discord.svg" width="32" height="32" /></a> <a href="https://www.facebook.com/warbonjr" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/facebook.svg" width="32" height="32" /></a> <a href="https://www.github.com/warbon" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg" width="32" height="32" /></a> <a href="https://www.linkedin.com/in/wilfredo-arbon" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg" width="32" height="32" /></a> <a href="https://www.twitter.com/776172626f6e" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter.svg" width="32" height="32" /></a>
  <a href="https://warbon.hashnode.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/hashnode.svg" width="32" height="32" /></a>
 </p>
 
