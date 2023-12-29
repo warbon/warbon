@@ -5,7 +5,7 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=30&pause=1000&color=3C9C22&width=435&lines=Full+Stack+Web+Developer;Technology+Enthusiast;and+a+Coffee+Lover.;Nice+meeting+you...)](https://git.io/typing-svg)
 
 * 🖥️  See my portfolio at [warbon.dev](https://warbon.dev)
-* ✉️  You can contact me at [wilfredo@eqho.ai](mailto:wilfredo@eqho.ai)
+* ✉️  You can contact me at [warbon@acware.tech](mailto:warbon@acware.tech)
 <!---
 * ✉️  You can contact me at [warbon@acware.tech](mailto:warbon@acware.tech)
 --->
@@ -13,7 +13,7 @@
 * 🤝  I'm open to collaborating on any ☕ projects 
 * 🤫  I'm your friendly neighborhood... 🕸️
 * 💪  Do your best and GOD will do the rest.. 🙏
-* 🎯  I'm presently dedicating my efforts to [eqho.ai](https://eqho.ai)
+* 🎯  I'm presently dedicating my efforts to [acware.tech](https://acware.tech)
 <!---
 * 🎯  I'm presently dedicating my efforts to [acware.tech](https://acware.tech)
 --->
