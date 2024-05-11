@@ -29,7 +29,7 @@
 
 ## 🔧 Skills
 
-[![My Skills](https://skillicons.dev/icons?i=vue,nuxtjs,laravel,js,html,css,azure,cs,dotnet,git,heroku,mysql,postman,supabase,ts,vercel,visualstudio,vscode,tailwind,github&perline=10)](https://warbon.me)
+[![My Skills](https://skillicons.dev/icons?i=vue,nuxtjs,react,laravel,cs,kotlin,ktor,dotnet,py,fastapi,js,html,css,azure,git,heroku,mysql,postgres,postman,supabase,ts,vercel,visualstudio,vscode,idea,tailwind,github,notion,docker,ubuntu&perline=10)](https://warbon.me)
 
 <br>
 
