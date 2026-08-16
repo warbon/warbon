@@ -1,7 +1,7 @@
-/* Premium AI Agent Core
- * Visual-only override for the existing hero AI HUD.
- * Keeps the portfolio layout and markup intact while replacing the previous
- * friendly/cute bot with a restrained, professional holographic AI agent.
+/* Professional no-hands AI Agent Core
+ * Matches the approved standalone prototype direction without changing the
+ * portfolio layout or existing hero markup. The robot is intentionally a
+ * floating developer agent rather than a mascot: no arms, no hands, no smile.
  */
 
 .portfolio-shell .ai-visual,
@@ -10,228 +10,222 @@
 }
 
 /* --------------------------------------------------------------------------
-   ORBITAL HUD
+   HUD
    -------------------------------------------------------------------------- */
 
 .portfolio-shell .ring-outer {
-  opacity: 0.38;
-  animation-duration: 38s;
+  opacity: 0.42;
+  animation-duration: 36s;
 }
 
 .portfolio-shell .ring-mid {
-  opacity: 0.56;
-  box-shadow: inset 0 0 28px color-mix(in srgb, var(--accent) 4%, transparent);
+  opacity: 0.62;
+  box-shadow: inset 0 0 30px color-mix(in srgb, var(--accent) 4%, transparent);
 }
 
 .portfolio-shell .ring-inner {
-  opacity: 0.34;
-  animation-duration: 21s;
+  opacity: 0.42;
+  animation-duration: 23s;
 }
 
-.portfolio-shell .orbit-one {
-  animation-duration: 18s;
-}
-
-.portfolio-shell .orbit-two {
-  animation-duration: 12s;
-}
+.portfolio-shell .orbit-one { animation-duration: 18s; }
+.portfolio-shell .orbit-two { animation-duration: 13s; }
+.portfolio-shell .hud-cross { opacity: 0.22; }
 
 .portfolio-shell .satellite {
-  box-shadow:
-    0 0 9px var(--accent),
-    0 0 24px var(--glow);
-}
-
-.portfolio-shell .hud-cross {
-  opacity: 0.24;
+  box-shadow: 0 0 10px var(--accent), 0 0 25px var(--glow);
 }
 
 /* --------------------------------------------------------------------------
-   PREMIUM AGENT SHELL
+   PROFESSIONAL FLOATING AGENT
    -------------------------------------------------------------------------- */
 
 .portfolio-shell .ai-core {
   position: relative;
-  width: 158px;
-  height: 112px;
+  z-index: 5;
+  width: 190px;
+  height: 190px;
   overflow: visible;
-  border: 1px solid color-mix(in srgb, var(--accent) 58%, var(--text));
-  border-radius: 26px 26px 34px 34px;
-  clip-path: polygon(10% 0, 90% 0, 100% 22%, 96% 82%, 82% 100%, 18% 100%, 4% 82%, 0 22%);
-  background:
-    linear-gradient(180deg,
-      color-mix(in srgb, var(--text) 6%, transparent),
-      transparent 22%),
-    linear-gradient(145deg,
-      color-mix(in srgb, var(--accent) 13%, var(--panel-2)) 0%,
-      color-mix(in srgb, var(--panel) 95%, black) 45%,
-      color-mix(in srgb, var(--accent) 7%, var(--panel)) 100%);
-  box-shadow:
-    0 0 22px color-mix(in srgb, var(--accent) 12%, transparent),
-    0 0 52px color-mix(in srgb, var(--accent) 9%, transparent),
-    inset 0 1px 0 color-mix(in srgb, var(--text) 12%, transparent),
-    inset 0 -20px 34px color-mix(in srgb, var(--accent) 4%, transparent);
-  transform-origin: 50% 70%;
-  animation: premium-agent-float 5.6s ease-in-out infinite;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  animation: pro-agent-float 4.8s ease-in-out infinite;
+  transform-origin: 50% 62%;
 }
 
-/* Angular side interface modules. */
-.portfolio-shell .ai-core::before,
+/* Metallic head shell. The path mirrors the approved SVG prototype rather
+   than using the old rounded rectangle / helmet construction. */
+.portfolio-shell .ai-core::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  border: 0;
+  border-radius: 0;
+  clip-path: path("M43 54 Q46 29 70 21 Q95 11 120 21 Q144 29 147 54 L145 87 Q140 117 95 124 Q50 117 45 87 Z M44 56 Q32 59 31 73 L33 90 Q34 99 44 101 L44 56 Z M146 56 Q158 59 159 73 L157 90 Q156 99 146 101 L146 56 Z");
+  background:
+    radial-gradient(circle at 38% 18%, color-mix(in srgb, var(--text) 72%, transparent), transparent 17%),
+    linear-gradient(145deg,
+      color-mix(in srgb, var(--text) 44%, var(--accent)) 0%,
+      color-mix(in srgb, var(--muted) 68%, var(--panel-2)) 24%,
+      color-mix(in srgb, var(--panel-2) 88%, black) 63%,
+      color-mix(in srgb, var(--panel) 96%, black) 100%);
+  filter:
+    drop-shadow(0 0 1px color-mix(in srgb, var(--accent) 72%, transparent))
+    drop-shadow(0 0 17px color-mix(in srgb, var(--accent) 12%, transparent));
+  opacity: 0.98;
+}
+
+/* Compact floating body/core. */
 .portfolio-shell .ai-core::after {
   content: "";
   position: absolute;
-  z-index: -1;
-  top: 31px;
-  width: 16px;
-  height: 42px;
-  border: 1px solid color-mix(in srgb, var(--accent) 42%, transparent);
+  z-index: 0;
+  inset: 0;
+  border: 0;
+  border-radius: 0;
+  clip-path: path("M67 120 Q95 128 123 120 L128 145 Q95 156 62 145 Z");
   background:
-    linear-gradient(180deg,
-      color-mix(in srgb, var(--accent) 16%, var(--panel-2)),
-      color-mix(in srgb, var(--panel) 94%, black));
-  box-shadow:
-    0 0 12px color-mix(in srgb, var(--accent) 10%, transparent),
-    inset 0 0 9px color-mix(in srgb, var(--accent) 7%, transparent);
-}
-
-.portfolio-shell .ai-core::before {
-  left: -10px;
-  clip-path: polygon(35% 0, 100% 16%, 100% 84%, 35% 100%, 0 73%, 0 27%);
-}
-
-.portfolio-shell .ai-core::after {
-  right: -10px;
-  clip-path: polygon(65% 0, 0 16%, 0 84%, 65% 100%, 100% 73%, 100% 27%);
+    linear-gradient(155deg,
+      color-mix(in srgb, var(--muted) 38%, var(--panel-2)),
+      color-mix(in srgb, var(--panel) 96%, black) 62%,
+      color-mix(in srgb, var(--accent) 5%, var(--panel)));
+  filter: drop-shadow(0 0 1px color-mix(in srgb, var(--accent) 40%, transparent));
 }
 
 /* --------------------------------------------------------------------------
-   VISOR
+   GLASS VISOR
    -------------------------------------------------------------------------- */
 
 .portfolio-shell .ai-core-text {
-  position: relative;
+  position: absolute;
+  z-index: 3;
+  inset: 0;
   display: block;
-  width: 122px;
-  height: 58px;
-  overflow: hidden;
-  isolation: isolate;
-  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
-  border-radius: 16px;
-  clip-path: polygon(8% 0, 92% 0, 100% 19%, 96% 82%, 86% 100%, 14% 100%, 4% 82%, 0 19%);
+  width: 190px;
+  height: 190px;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  clip-path: path("M50 48 Q95 30 140 48 L145 81 Q139 109 95 115 Q51 109 45 81 Z");
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--accent) 3%, transparent), transparent 50%),
-    linear-gradient(90deg,
-      color-mix(in srgb, var(--bg) 96%, black),
-      #000 48%,
-      color-mix(in srgb, var(--bg) 96%, black));
-  box-shadow:
-    inset 0 0 28px color-mix(in srgb, var(--accent) 7%, transparent),
-    inset 0 -1px 0 color-mix(in srgb, var(--accent) 18%, transparent),
-    0 0 18px color-mix(in srgb, var(--accent) 5%, transparent);
-  animation: visor-energy 4.8s ease-in-out infinite;
+    radial-gradient(circle at 50% 39%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 37%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--panel) 68%, #07100a),
+      color-mix(in srgb, var(--bg) 95%, black) 46%,
+      #000 100%);
+  filter:
+    drop-shadow(0 0 1px color-mix(in srgb, var(--accent) 52%, transparent))
+    drop-shadow(0 0 13px color-mix(in srgb, var(--accent) 8%, transparent));
+  isolation: isolate;
 }
 
 .portfolio-shell .ai-core-text strong,
 .portfolio-shell .ai-core-text span {
   position: static;
+  display: block;
   margin: 0 !important;
   color: transparent !important;
   font-size: 0 !important;
+  line-height: 0 !important;
   letter-spacing: 0 !important;
   text-indent: 0 !important;
   user-select: none;
 }
 
-/* Thin, intelligent visor eyes — deliberately not cartoon-like. */
+/* Slim visor eyes. */
 .portfolio-shell .ai-core-text strong::before,
 .portfolio-shell .ai-core-text strong::after {
   content: "";
   position: absolute;
-  top: 25px;
-  width: 26px;
-  height: 3px;
+  z-index: 6;
+  top: 73px;
+  width: 20px;
+  height: 4px;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent, var(--accent), var(--accent), transparent);
+  background: var(--accent);
   box-shadow:
     0 0 7px var(--accent),
-    0 0 16px color-mix(in srgb, var(--accent) 36%, transparent);
-  opacity: 0.9;
+    0 0 16px color-mix(in srgb, var(--accent) 40%, transparent);
+  opacity: 0.92;
   transform-origin: center;
-  animation: visor-focus 6.2s ease-in-out infinite;
+  animation: pro-eye-cycle 16s ease-in-out infinite;
 }
 
-.portfolio-shell .ai-core-text strong::before {
-  left: 20px;
-  transform: rotate(2deg);
-}
+.portfolio-shell .ai-core-text strong::before { left: 66px; }
+.portfolio-shell .ai-core-text strong::after { right: 66px; animation-delay: 0.06s; }
 
-.portfolio-shell .ai-core-text strong::after {
-  right: 20px;
-  transform: rotate(-2deg);
-  animation-delay: 0.06s;
-}
-
-/* Horizontal scanner line across the visor. */
-.portfolio-shell .ai-core-text span::before {
-  content: "";
-  position: absolute;
-  z-index: 3;
-  top: 7px;
-  left: 10px;
-  width: calc(100% - 20px);
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  box-shadow: 0 0 8px var(--glow);
-  opacity: 0;
-  animation: visor-scan 3.8s ease-in-out infinite;
-}
-
-/* Center processing indicator. */
-.portfolio-shell .ai-core-text span::after {
-  content: "";
-  position: absolute;
-  z-index: 3;
-  left: 50%;
-  bottom: 10px;
-  width: 5px;
-  height: 5px;
-  transform: translateX(-50%) rotate(45deg);
-  border: 1px solid var(--accent);
-  background: color-mix(in srgb, var(--accent) 22%, transparent);
-  box-shadow: 0 0 8px var(--glow);
-  animation: processing-diamond 1.9s ease-in-out infinite;
-}
-
-/* Subtle shell crown / status spine. */
+/* Subtle visor reflection. */
 .portfolio-shell .ai-core-text::before {
   content: "";
   position: absolute;
-  z-index: -2;
-  left: 50%;
-  top: -34px;
-  width: 54px;
-  height: 22px;
-  transform: translateX(-50%);
-  border-top: 1px solid color-mix(in srgb, var(--accent) 54%, transparent);
-  border-right: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
-  border-left: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
-  clip-path: polygon(18% 100%, 0 0, 100% 0, 82% 100%);
-  opacity: 0.75;
+  z-index: 4;
+  top: 47px;
+  left: 62px;
+  width: 66px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--text) 36%, transparent), transparent);
+  opacity: 0.42;
 }
 
+/* Review scanner: only appears during the REVIEWING quarter of the cycle. */
 .portfolio-shell .ai-core-text::after {
   content: "";
   position: absolute;
-  z-index: 5;
-  left: 50%;
-  top: -29px;
-  width: 18px;
-  height: 2px;
-  transform: translateX(-50%);
+  z-index: 7;
+  top: 59px;
+  left: 49px;
+  width: 92px;
+  height: 1px;
   border-radius: 999px;
-  background: var(--accent);
-  box-shadow: 0 0 8px var(--accent), 0 0 18px var(--glow);
-  animation: status-spine 2.4s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  box-shadow: 0 0 8px var(--accent);
+  opacity: 0;
+  animation: pro-review-scan 16s ease-in-out infinite;
+}
+
+/* Body activity processor. */
+.portfolio-shell .ai-core-text span::before {
+  content: "";
+  position: absolute;
+  z-index: 6;
+  top: 133px;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  transform: translateX(-50%) rotate(45deg);
+  border: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--panel));
+  box-shadow: 0 0 9px var(--glow), inset 0 0 8px color-mix(in srgb, var(--accent) 8%, transparent);
+  animation: pro-core-cycle 16s ease-in-out infinite;
+}
+
+/* Holographic implementation console. It is hidden except while IMPLEMENTING. */
+.portfolio-shell .ai-core-text span::after {
+  content: "";
+  position: absolute;
+  z-index: 9;
+  top: 151px;
+  left: 50%;
+  width: 120px;
+  height: 27px;
+  transform: translateX(-50%) perspective(90px) rotateX(58deg);
+  transform-origin: top center;
+  clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+  border: 1px solid color-mix(in srgb, var(--accent) 54%, transparent);
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0 10px,
+      color-mix(in srgb, var(--accent) 16%, transparent) 10px 11px),
+    repeating-linear-gradient(180deg,
+      transparent 0 6px,
+      color-mix(in srgb, var(--accent) 20%, transparent) 6px 7px),
+    color-mix(in srgb, var(--accent) 3%, transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 10%, transparent);
+  opacity: 0;
+  animation: pro-console-cycle 16s ease-in-out infinite;
 }
 
 /* --------------------------------------------------------------------------
@@ -241,93 +235,82 @@
 .portfolio-shell .ai-core .pulse {
   top: auto;
   right: auto;
-  bottom: -50px;
+  bottom: -5px;
   left: 50%;
-  width: 174px;
-  height: 30px;
-  border: 1px solid color-mix(in srgb, var(--accent) 48%, transparent);
+  width: 154px;
+  height: 28px;
+  border: 1px solid color-mix(in srgb, var(--accent) 46%, transparent);
   border-radius: 50%;
   opacity: 0.58;
   transform: translateX(-50%);
   box-shadow:
-    0 0 13px color-mix(in srgb, var(--accent) 14%, transparent),
-    inset 0 0 10px color-mix(in srgb, var(--accent) 8%, transparent);
-  animation: premium-platform 3.6s ease-in-out infinite;
+    0 0 14px color-mix(in srgb, var(--accent) 13%, transparent),
+    inset 0 0 12px color-mix(in srgb, var(--accent) 8%, transparent);
+  animation: pro-platform 2.9s ease-in-out infinite;
 }
 
 .portfolio-shell .ai-core .pulse-two {
-  bottom: -45px;
-  width: 116px;
-  height: 20px;
-  opacity: 0.42;
-  animation-delay: 0.75s;
+  bottom: 0;
+  width: 102px;
+  height: 18px;
+  opacity: 0.38;
+  animation-delay: 0.6s;
 }
 
 /* --------------------------------------------------------------------------
-   ACTIVITY STATES
+   ACTIVITY LABELS — THINKING -> PLANNING -> IMPLEMENTING -> REVIEWING
    -------------------------------------------------------------------------- */
 
 .portfolio-shell .hud-tag,
 .portfolio-shell .hud::after {
-  z-index: 8;
-  min-width: 105px;
+  z-index: 10;
+  min-width: 110px;
   padding: 7px 11px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  color: color-mix(in srgb, var(--accent) 65%, var(--muted));
+  border-radius: 9px;
+  color: color-mix(in srgb, var(--accent) 58%, var(--muted));
   background: color-mix(in srgb, var(--panel) 94%, transparent);
   box-shadow: none;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(9px);
   font-size: 0;
-  font-weight: 600;
+  font-weight: 650;
   letter-spacing: 0.06em;
   text-align: center;
   text-transform: uppercase;
-  opacity: 0.44;
-  animation: premium-state-cycle 16s steps(1, end) infinite;
+  opacity: 0.4;
+  animation: pro-state-cycle 16s steps(1, end) infinite;
 }
 
 .portfolio-shell .hud-tag::before,
-.portfolio-shell .hud::after {
-  font-size: 8px;
-}
+.portfolio-shell .hud::after { font-size: 8px; }
 
 .portfolio-shell .tag-one {
-  top: 3px;
+  top: 2px;
   left: 50%;
   transform: translateX(-50%);
   animation-delay: 0s;
 }
-
-.portfolio-shell .tag-one::before {
-  content: "◌  THINKING";
-}
-
-.portfolio-shell .tag-two {
-  top: 120px;
-  right: -34px;
-  animation-delay: -8s;
-}
-
-.portfolio-shell .tag-two::before {
-  content: "</>  IMPLEMENTING";
-}
+.portfolio-shell .tag-one::before { content: "◉  THINKING"; }
 
 .portfolio-shell .tag-three {
-  top: 120px;
+  top: 121px;
   bottom: auto;
-  left: -28px;
+  left: -30px;
   animation-delay: -12s;
 }
+.portfolio-shell .tag-three::before { content: "⌘  PLANNING"; }
 
-.portfolio-shell .tag-three::before {
-  content: "⌘  PLANNING";
+.portfolio-shell .tag-two {
+  top: 121px;
+  right: -38px;
+  animation-delay: -8s;
 }
+.portfolio-shell .tag-two::before { content: "</>  IMPLEMENTING"; }
 
 .portfolio-shell .hud::after {
   content: "⌕  REVIEWING";
   position: absolute;
-  bottom: 3px;
+  bottom: 2px;
   left: 50%;
   transform: translateX(-50%);
   animation-delay: -4s;
@@ -340,123 +323,87 @@
   color: var(--accent);
   font-size: 8px;
   letter-spacing: 0.03em;
-  animation: processing-dots 1.4s steps(4, end) infinite;
+  animation: pro-dots 1.35s steps(4, end) infinite;
 }
 
 /* --------------------------------------------------------------------------
-   MOTION
+   MOTION / STATE BEHAVIOR
    -------------------------------------------------------------------------- */
 
-@keyframes premium-agent-float {
-  0%, 100% {
-    transform: translateY(0) rotate(-0.15deg);
-    filter: brightness(0.98);
-  }
+@keyframes pro-agent-float {
+  0%, 100% { transform: translateY(0) rotate(-0.12deg); filter: brightness(0.99); }
+  50% { transform: translateY(-7px) rotate(0.12deg); filter: brightness(1.04); }
+}
+
+/* THINKING: eyes look left/right. PLANNING: eyes narrow. Other states settle. */
+@keyframes pro-eye-cycle {
+  0%, 5% { transform: translateX(-3px) scaleY(0.75); }
+  11% { transform: translateX(3px) scaleY(0.75); }
+  18%, 23% { transform: translateX(-2px) scaleY(0.75); }
+  25%, 47% { transform: translateX(0) scaleY(0.55); }
+  49%, 72% { transform: translateX(0) scaleY(1); }
+  74%, 97% { transform: translateX(0) scaleY(0.82); }
+  100% { transform: translateX(-3px) scaleY(0.75); }
+}
+
+/* Processor pulse changes character per state: thought -> planning rotation -> build pulse -> review. */
+@keyframes pro-core-cycle {
+  0%, 23% { transform: translateX(-50%) rotate(45deg) scale(0.82); opacity: 0.65; }
+  10% { transform: translateX(-50%) rotate(45deg) scale(1.16); opacity: 1; }
+  25% { transform: translateX(-50%) rotate(45deg) scale(0.9); opacity: 0.65; }
+  36% { transform: translateX(-50%) rotate(135deg) scale(1.04); opacity: 1; }
+  47% { transform: translateX(-50%) rotate(225deg) scale(0.9); opacity: 0.72; }
+  50%, 72% { transform: translateX(-50%) rotate(45deg) scale(1.12); opacity: 1; }
+  61% { transform: translateX(-50%) rotate(45deg) scale(0.82); opacity: 0.58; }
+  75%, 97% { transform: translateX(-50%) rotate(45deg) scale(0.88); opacity: 0.68; }
+  100% { transform: translateX(-50%) rotate(45deg) scale(0.82); opacity: 0.65; }
+}
+
+@keyframes pro-console-cycle {
+  0%, 48% { opacity: 0; transform: translateX(-50%) perspective(90px) rotateX(58deg) translateY(5px); }
+  51%, 70% { opacity: 0.72; transform: translateX(-50%) perspective(90px) rotateX(58deg) translateY(0); }
+  57%, 64% { opacity: 1; filter: drop-shadow(0 0 7px var(--accent)); }
+  73%, 100% { opacity: 0; transform: translateX(-50%) perspective(90px) rotateX(58deg) translateY(5px); }
+}
+
+@keyframes pro-review-scan {
+  0%, 74% { top: 59px; opacity: 0; }
+  77% { opacity: 0.86; }
+  84% { top: 84px; opacity: 0.72; }
+  92% { top: 104px; opacity: 0.52; }
+  98%, 100% { top: 104px; opacity: 0; }
+}
+
+@keyframes pro-platform {
+  0%, 100% { transform: translateX(-50%) scale(0.9); opacity: 0.28; }
   50% {
-    transform: translateY(-4px) rotate(0.15deg);
-    filter: brightness(1.035);
+    transform: translateX(-50%) scale(1.06);
+    opacity: 0.68;
+    box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 18%, transparent), inset 0 0 12px color-mix(in srgb, var(--accent) 10%, transparent);
   }
 }
 
-@keyframes visor-energy {
-  0%, 100% {
-    box-shadow:
-      inset 0 0 24px color-mix(in srgb, var(--accent) 6%, transparent),
-      inset 0 -1px 0 color-mix(in srgb, var(--accent) 14%, transparent),
-      0 0 13px color-mix(in srgb, var(--accent) 4%, transparent);
-  }
-  50% {
-    box-shadow:
-      inset 0 0 30px color-mix(in srgb, var(--accent) 10%, transparent),
-      inset 0 -1px 0 color-mix(in srgb, var(--accent) 26%, transparent),
-      0 0 22px color-mix(in srgb, var(--accent) 8%, transparent);
-  }
-}
-
-@keyframes visor-focus {
-  0%, 42%, 46%, 74%, 78%, 100% {
-    width: 26px;
-    height: 3px;
-    opacity: 0.9;
-  }
-  44%, 76% {
-    width: 20px;
-    height: 1px;
-    opacity: 0.58;
-  }
-}
-
-@keyframes visor-scan {
-  0%, 12% {
-    top: 7px;
-    opacity: 0;
-  }
-  24% {
-    opacity: 0.72;
-  }
-  74% {
-    top: 48px;
-    opacity: 0.5;
-  }
-  88%, 100% {
-    top: 48px;
-    opacity: 0;
-  }
-}
-
-@keyframes processing-diamond {
-  0%, 100% {
-    transform: translateX(-50%) rotate(45deg) scale(0.72);
-    opacity: 0.44;
-  }
-  50% {
-    transform: translateX(-50%) rotate(45deg) scale(1.08);
-    opacity: 0.95;
-  }
-}
-
-@keyframes status-spine {
-  0%, 100% { width: 10px; opacity: 0.42; }
-  50% { width: 24px; opacity: 1; }
-}
-
-@keyframes premium-platform {
-  0%, 100% {
-    transform: translateX(-50%) scale(0.9);
-    opacity: 0.28;
-  }
-  50% {
-    transform: translateX(-50%) scale(1.04);
-    opacity: 0.7;
-    box-shadow:
-      0 0 20px color-mix(in srgb, var(--accent) 18%, transparent),
-      inset 0 0 14px color-mix(in srgb, var(--accent) 10%, transparent);
-  }
-}
-
-@keyframes premium-state-cycle {
+@keyframes pro-state-cycle {
   0%, 23.9% {
     opacity: 1;
     color: var(--accent);
-    border-color: color-mix(in srgb, var(--accent) 62%, var(--text));
-    background: color-mix(in srgb, var(--accent) 7%, var(--panel));
-    box-shadow:
-      0 0 12px color-mix(in srgb, var(--accent) 12%, transparent),
-      inset 0 0 12px color-mix(in srgb, var(--accent) 4%, transparent);
+    border-color: color-mix(in srgb, var(--accent) 78%, var(--text));
+    background: color-mix(in srgb, var(--accent) 8%, var(--panel));
+    box-shadow: 0 0 16px var(--glow), inset 0 0 13px color-mix(in srgb, var(--accent) 4%, transparent);
   }
   24%, 100% {
-    opacity: 0.42;
-    color: color-mix(in srgb, var(--accent) 48%, var(--muted));
+    opacity: 0.4;
+    color: color-mix(in srgb, var(--accent) 52%, var(--muted));
     border-color: var(--line);
     background: color-mix(in srgb, var(--panel) 94%, transparent);
     box-shadow: none;
   }
 }
 
-@keyframes processing-dots {
-  0% { opacity: 0.2; }
+@keyframes pro-dots {
+  0% { opacity: 0.18; }
   50% { opacity: 1; }
-  100% { opacity: 0.3; }
+  100% { opacity: 0.32; }
 }
 
 /* --------------------------------------------------------------------------
@@ -464,18 +411,17 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 760px) {
-  .portfolio-shell .tag-two {
-    right: -42px;
+  .portfolio-shell .ai-core {
+    transform: scale(0.92);
   }
 
-  .portfolio-shell .tag-three {
-    left: -40px;
-  }
+  .portfolio-shell .tag-two { right: -43px; }
+  .portfolio-shell .tag-three { left: -39px; }
 
   .portfolio-shell .hud-tag,
   .portfolio-shell .hud::after {
-    min-width: 94px;
-    padding: 6px 8px;
+    min-width: 98px;
+    padding: 6px 9px;
   }
 
   .portfolio-shell .hud-tag::before,
@@ -487,16 +433,25 @@
 
 @media (prefers-reduced-motion: reduce) {
   .portfolio-shell .ai-core,
-  .portfolio-shell .ai-core-text,
   .portfolio-shell .ai-core-text strong::before,
   .portfolio-shell .ai-core-text strong::after,
+  .portfolio-shell .ai-core-text::after,
   .portfolio-shell .ai-core-text span::before,
   .portfolio-shell .ai-core-text span::after,
-  .portfolio-shell .ai-core-text::after,
   .portfolio-shell .ai-core .pulse,
   .portfolio-shell .hud-tag,
-  .portfolio-shell .hud::after,
-  .portfolio-shell .hud-tag::after {
+  .portfolio-shell .hud::after {
     animation: none !important;
+  }
+
+  .portfolio-shell .ai-core-text span::after,
+  .portfolio-shell .ai-core-text::after {
+    opacity: 0 !important;
+  }
+
+  .portfolio-shell .tag-one {
+    opacity: 1;
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 78%, var(--text));
   }
 }
