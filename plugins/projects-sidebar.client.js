@@ -12,6 +12,8 @@ const projectsMarkup = `
 
 const textReplacements = [
   ['wilfredo@portfolio:', 'warbon@portfolio:'],
+  ['warbon@acware.tech', 'wilfredo@acware.org'],
+  ['acware.tech', 'acware.org'],
   ['2024 → Present / Sansan Global Development Center', '2024 → Present / Current Employer [PRIVATE]'],
   [
     'Senior Software Engineer — product design and development, stakeholder collaboration, feature delivery, testing, debugging, code reviews and maintenance.',
@@ -48,6 +50,21 @@ function replacePublicTextValue(value) {
   }, value)
 }
 
+function replacePublicAttributes(root = document) {
+  const links = []
+
+  if (root.nodeType === Node.ELEMENT_NODE && root.matches && root.matches('a[href]')) links.push(root)
+  if (root.querySelectorAll) links.push(...root.querySelectorAll('a[href]'))
+
+  links.forEach((link) => {
+    const href = link.getAttribute('href')
+    if (!href) return
+
+    const replaced = replacePublicTextValue(href)
+    if (replaced !== href) link.setAttribute('href', replaced)
+  })
+}
+
 function replacePublicText(root = document) {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
   const nodes = []
@@ -62,6 +79,8 @@ function replacePublicText(root = document) {
   nodes.forEach(({ node: textNode, replaced }) => {
     textNode.nodeValue = replaced
   })
+
+  replacePublicAttributes(root)
 }
 
 function watchPublicText() {
@@ -72,6 +91,10 @@ function watchPublicText() {
       if (mutation.type === 'characterData' && mutation.target.nodeValue) {
         const replaced = replacePublicTextValue(mutation.target.nodeValue)
         if (replaced !== mutation.target.nodeValue) mutation.target.nodeValue = replaced
+      }
+
+      if (mutation.type === 'attributes' && mutation.target.nodeType === Node.ELEMENT_NODE) {
+        replacePublicAttributes(mutation.target)
       }
 
       mutation.addedNodes.forEach((node) => {
@@ -91,6 +114,8 @@ function watchPublicText() {
   observer.observe(document.body, {
     childList: true,
     characterData: true,
+    attributes: true,
+    attributeFilter: ['href'],
     subtree: true
   })
 }
