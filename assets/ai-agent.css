@@ -1,11 +1,14 @@
-/* Professional no-hands AI Agent Core
- * Matches the approved standalone prototype direction without changing the
- * portfolio layout or existing hero markup. The robot is intentionally a
- * floating developer agent rather than a mascot: no arms, no hands, no smile.
+/* Synchronized Professional AI Agent
+ * Keeps the approved no-hands floating agent and existing hero markup.
+ * One 16s timeline now drives both the highlighted activity label and the
+ * matching visual behavior:
+ * 0-4s Thinking -> 4-8s Planning -> 8-12s Implementing -> 12-16s Reviewing.
  */
 
 .portfolio-shell .ai-visual,
-.portfolio-shell .hud {
+.portfolio-shell .hud,
+.portfolio-shell .ai-core,
+.portfolio-shell .ai-core .pulse {
   overflow: visible;
 }
 
@@ -45,17 +48,17 @@
   z-index: 5;
   width: 190px;
   height: 190px;
-  overflow: visible;
   border: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-  animation: pro-agent-float 4.8s ease-in-out infinite;
   transform-origin: 50% 62%;
+  animation:
+    pro-agent-float 4.8s ease-in-out infinite,
+    pro-shell-state 16s ease-in-out infinite;
 }
 
-/* Metallic head shell. The path mirrors the approved SVG prototype rather
-   than using the old rounded rectangle / helmet construction. */
+/* Metallic head shell. */
 .portfolio-shell .ai-core::before {
   content: "";
   position: absolute;
@@ -65,10 +68,10 @@
   border-radius: 0;
   clip-path: path("M43 54 Q46 29 70 21 Q95 11 120 21 Q144 29 147 54 L145 87 Q140 117 95 124 Q50 117 45 87 Z M44 56 Q32 59 31 73 L33 90 Q34 99 44 101 L44 56 Z M146 56 Q158 59 159 73 L157 90 Q156 99 146 101 L146 56 Z");
   background:
-    radial-gradient(circle at 38% 18%, color-mix(in srgb, var(--text) 72%, transparent), transparent 17%),
+    radial-gradient(circle at 38% 18%, color-mix(in srgb, var(--text) 40%, transparent), transparent 17%),
     linear-gradient(145deg,
-      color-mix(in srgb, var(--text) 44%, var(--accent)) 0%,
-      color-mix(in srgb, var(--muted) 68%, var(--panel-2)) 24%,
+      color-mix(in srgb, var(--text) 25%, var(--accent)) 0%,
+      color-mix(in srgb, var(--muted) 62%, var(--panel-2)) 24%,
       color-mix(in srgb, var(--panel-2) 88%, black) 63%,
       color-mix(in srgb, var(--panel) 96%, black) 100%);
   filter:
@@ -95,7 +98,10 @@
 }
 
 /* --------------------------------------------------------------------------
-   GLASS VISOR
+   VISOR / FACE
+   Important: this wrapper is intentionally NOT clipped. The previous version
+   clipped the implementation console and processor because they extended
+   outside the visor path. The visor itself is now drawn by ::before.
    -------------------------------------------------------------------------- */
 
 .portfolio-shell .ai-core-text {
@@ -108,8 +114,24 @@
   overflow: visible;
   border: 0;
   border-radius: 0;
+  clip-path: none;
+  background: transparent;
+  box-shadow: none;
+  filter: none;
+  isolation: isolate;
+}
+
+/* Dark glass visor panel. */
+.portfolio-shell .ai-core-text::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
   clip-path: path("M50 48 Q95 30 140 48 L145 81 Q139 109 95 115 Q51 109 45 81 Z");
   background:
+    linear-gradient(160deg,
+      color-mix(in srgb, var(--text) 8%, transparent) 0%,
+      transparent 24%),
     radial-gradient(circle at 50% 39%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 37%),
     linear-gradient(180deg,
       color-mix(in srgb, var(--panel) 68%, #07100a),
@@ -118,7 +140,6 @@
   filter:
     drop-shadow(0 0 1px color-mix(in srgb, var(--accent) 52%, transparent))
     drop-shadow(0 0 13px color-mix(in srgb, var(--accent) 8%, transparent));
-  isolation: isolate;
 }
 
 .portfolio-shell .ai-core-text strong,
@@ -134,7 +155,7 @@
   user-select: none;
 }
 
-/* Slim visor eyes. */
+/* Slim visor eyes. The full 16s state cycle is synchronized with labels. */
 .portfolio-shell .ai-core-text strong::before,
 .portfolio-shell .ai-core-text strong::after {
   content: "";
@@ -150,40 +171,26 @@
     0 0 16px color-mix(in srgb, var(--accent) 40%, transparent);
   opacity: 0.92;
   transform-origin: center;
-  animation: pro-eye-cycle 16s ease-in-out infinite;
+  animation: pro-eye-state 16s ease-in-out infinite;
 }
 
 .portfolio-shell .ai-core-text strong::before { left: 66px; }
-.portfolio-shell .ai-core-text strong::after { right: 66px; animation-delay: 0.06s; }
+.portfolio-shell .ai-core-text strong::after { right: 66px; }
 
-/* Subtle visor reflection. */
-.portfolio-shell .ai-core-text::before {
-  content: "";
-  position: absolute;
-  z-index: 4;
-  top: 47px;
-  left: 62px;
-  width: 66px;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--text) 36%, transparent), transparent);
-  opacity: 0.42;
-}
-
-/* Review scanner: only appears during the REVIEWING quarter of the cycle. */
+/* REVIEWING scanner. */
 .portfolio-shell .ai-core-text::after {
   content: "";
   position: absolute;
   z-index: 7;
   top: 59px;
-  left: 49px;
-  width: 92px;
+  left: 50px;
+  width: 90px;
   height: 1px;
   border-radius: 999px;
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
   box-shadow: 0 0 8px var(--accent);
   opacity: 0;
-  animation: pro-review-scan 16s ease-in-out infinite;
+  animation: pro-review-scan-state 16s ease-in-out infinite;
 }
 
 /* Body activity processor. */
@@ -199,40 +206,43 @@
   border: 1px solid var(--accent);
   background: color-mix(in srgb, var(--accent) 8%, var(--panel));
   box-shadow: 0 0 9px var(--glow), inset 0 0 8px color-mix(in srgb, var(--accent) 8%, transparent);
-  animation: pro-core-cycle 16s ease-in-out infinite;
+  animation: pro-core-state 16s ease-in-out infinite;
 }
 
-/* Holographic implementation console. It is hidden except while IMPLEMENTING. */
+/* IMPLEMENTING console. This was previously clipped by .ai-core-text. */
 .portfolio-shell .ai-core-text span::after {
   content: "";
   position: absolute;
   z-index: 9;
   top: 151px;
   left: 50%;
-  width: 120px;
-  height: 27px;
-  transform: translateX(-50%) perspective(90px) rotateX(58deg);
+  width: 126px;
+  height: 31px;
+  transform: translateX(-50%) perspective(100px) rotateX(58deg) translateY(6px);
   transform-origin: top center;
-  clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
-  border: 1px solid color-mix(in srgb, var(--accent) 54%, transparent);
+  clip-path: polygon(9% 0, 91% 0, 100% 100%, 0 100%);
+  border: 1px solid color-mix(in srgb, var(--accent) 62%, transparent);
   background:
     repeating-linear-gradient(90deg,
       transparent 0 10px,
-      color-mix(in srgb, var(--accent) 16%, transparent) 10px 11px),
+      color-mix(in srgb, var(--accent) 19%, transparent) 10px 11px),
     repeating-linear-gradient(180deg,
       transparent 0 6px,
-      color-mix(in srgb, var(--accent) 20%, transparent) 6px 7px),
-    color-mix(in srgb, var(--accent) 3%, transparent);
-  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 10%, transparent);
+      color-mix(in srgb, var(--accent) 24%, transparent) 6px 7px),
+    color-mix(in srgb, var(--accent) 4%, transparent);
+  box-shadow:
+    0 0 18px color-mix(in srgb, var(--accent) 13%, transparent),
+    inset 0 0 12px color-mix(in srgb, var(--accent) 6%, transparent);
   opacity: 0;
-  animation: pro-console-cycle 16s ease-in-out infinite;
+  animation: pro-console-state 16s ease-in-out infinite;
 }
 
 /* --------------------------------------------------------------------------
-   HOLOGRAPHIC PLATFORM
+   HOLOGRAPHIC PLATFORM + STATE-SPECIFIC PANELS
    -------------------------------------------------------------------------- */
 
 .portfolio-shell .ai-core .pulse {
+  position: absolute;
   top: auto;
   right: auto;
   bottom: -5px;
@@ -257,8 +267,95 @@
   animation-delay: 0.6s;
 }
 
+/* PLANNING architecture graph card. */
+.portfolio-shell .pulse-one::before {
+  content: "";
+  position: absolute;
+  z-index: 12;
+  top: -104px;
+  left: -56px;
+  width: 64px;
+  height: 43px;
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  border-radius: 7px;
+  background:
+    radial-gradient(circle at 20% 32%, var(--accent) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 32%, var(--accent) 0 2px, transparent 3px),
+    radial-gradient(circle at 50% 72%, var(--accent) 0 2px, transparent 3px),
+    linear-gradient(32deg, transparent 47%, color-mix(in srgb, var(--accent) 45%, transparent) 48% 50%, transparent 51%) 9px 11px / 23px 26px no-repeat,
+    linear-gradient(-32deg, transparent 47%, color-mix(in srgb, var(--accent) 45%, transparent) 48% 50%, transparent 51%) 32px 11px / 23px 26px no-repeat,
+    color-mix(in srgb, var(--panel) 91%, transparent);
+  box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 9%, transparent);
+  opacity: 0;
+  transform: translateY(5px) scale(0.94);
+  animation: pro-planning-panel-state 16s ease-in-out infinite;
+}
+
+/* THINKING processor bubble. */
+.portfolio-shell .pulse-one::after {
+  content: "";
+  position: absolute;
+  z-index: 12;
+  top: -157px;
+  right: -24px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid color-mix(in srgb, var(--accent) 68%, transparent);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent) 0 2px, transparent 3px);
+  box-shadow: 0 0 10px var(--glow);
+  opacity: 0;
+  animation: pro-thinking-node-state 16s ease-in-out infinite;
+}
+
+/* IMPLEMENTING floating code stream above the console. */
+.portfolio-shell .pulse-two::before {
+  content: "";
+  position: absolute;
+  z-index: 11;
+  top: -76px;
+  left: 50%;
+  width: 70px;
+  height: 48px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(90deg, var(--accent) 0 23px, transparent 23px) 0 4px / 100% 2px no-repeat,
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 55%, transparent) 0 42px, transparent 42px) 8px 14px / 100% 2px no-repeat,
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 40%, transparent) 0 31px, transparent 31px) 20px 24px / 100% 2px no-repeat,
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 28%, transparent) 0 50px, transparent 50px) 4px 34px / 100% 2px no-repeat;
+  filter: drop-shadow(0 0 5px var(--glow));
+  opacity: 0;
+  animation: pro-code-stream-state 16s linear infinite;
+}
+
+/* REVIEWING card with text lines and check mark. */
+.portfolio-shell .pulse-two::after {
+  content: "✓";
+  position: absolute;
+  z-index: 12;
+  top: -116px;
+  right: -79px;
+  width: 68px;
+  height: 48px;
+  padding: 28px 8px 0;
+  border: 1px solid color-mix(in srgb, var(--accent) 48%, transparent);
+  border-radius: 7px;
+  color: var(--accent);
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 46%, transparent) 0 39px, transparent 39px) 8px 10px / 100% 2px no-repeat,
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 34%, transparent) 0 30px, transparent 30px) 8px 18px / 100% 2px no-repeat,
+    color-mix(in srgb, var(--panel) 92%, transparent);
+  box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 9%, transparent);
+  font-size: 10px;
+  line-height: 1;
+  text-align: right;
+  opacity: 0;
+  transform: translateY(5px) scale(0.94);
+  animation: pro-review-panel-state 16s ease-in-out infinite;
+}
+
 /* --------------------------------------------------------------------------
-   ACTIVITY LABELS — THINKING -> PLANNING -> IMPLEMENTING -> REVIEWING
+   ACTIVITY LABELS — SAME 16s CLOCK AS BOT
    -------------------------------------------------------------------------- */
 
 .portfolio-shell .hud-tag,
@@ -278,14 +375,14 @@
   text-align: center;
   text-transform: uppercase;
   opacity: 0.4;
-  animation: pro-state-cycle 16s steps(1, end) infinite;
+  animation: pro-state-highlight 16s steps(1, end) infinite;
 }
 
 .portfolio-shell .hud-tag::before,
 .portfolio-shell .hud::after { font-size: 8px; }
 
 .portfolio-shell .tag-one {
-  top: 2px;
+  top: 5px;
   left: 50%;
   transform: translateX(-50%);
   animation-delay: 0s;
@@ -295,14 +392,14 @@
 .portfolio-shell .tag-three {
   top: 121px;
   bottom: auto;
-  left: -30px;
+  left: 4px;
   animation-delay: -12s;
 }
 .portfolio-shell .tag-three::before { content: "⌘  PLANNING"; }
 
 .portfolio-shell .tag-two {
   top: 121px;
-  right: -38px;
+  right: 4px;
   animation-delay: -8s;
 }
 .portfolio-shell .tag-two::before { content: "</>  IMPLEMENTING"; }
@@ -310,7 +407,7 @@
 .portfolio-shell .hud::after {
   content: "⌕  REVIEWING";
   position: absolute;
-  bottom: 2px;
+  bottom: 5px;
   left: 50%;
   transform: translateX(-50%);
   animation-delay: -4s;
@@ -327,51 +424,117 @@
 }
 
 /* --------------------------------------------------------------------------
-   MOTION / STATE BEHAVIOR
+   SYNCHRONIZED STATE MOTION
    -------------------------------------------------------------------------- */
 
 @keyframes pro-agent-float {
-  0%, 100% { transform: translateY(0) rotate(-0.12deg); filter: brightness(0.99); }
-  50% { transform: translateY(-7px) rotate(0.12deg); filter: brightness(1.04); }
+  0%, 100% { transform: translateY(0) rotate(-0.12deg); }
+  50% { transform: translateY(-7px) rotate(0.12deg); }
 }
 
-/* THINKING: eyes look left/right. PLANNING: eyes narrow. Other states settle. */
-@keyframes pro-eye-cycle {
-  0%, 5% { transform: translateX(-3px) scaleY(0.75); }
-  11% { transform: translateX(3px) scaleY(0.75); }
-  18%, 23% { transform: translateX(-2px) scaleY(0.75); }
-  25%, 47% { transform: translateX(0) scaleY(0.55); }
-  49%, 72% { transform: translateX(0) scaleY(1); }
-  74%, 97% { transform: translateX(0) scaleY(0.82); }
-  100% { transform: translateX(-3px) scaleY(0.75); }
+/* Small brightness change gives each state a distinct feel without changing
+   the silhouette. */
+@keyframes pro-shell-state {
+  0%, 24.9% { filter: brightness(1); }
+  25%, 49.9% { filter: brightness(1.035); }
+  50%, 74.9% { filter: brightness(1.07); }
+  75%, 99.9% { filter: brightness(0.98); }
+  100% { filter: brightness(1); }
 }
 
-/* Processor pulse changes character per state: thought -> planning rotation -> build pulse -> review. */
-@keyframes pro-core-cycle {
-  0%, 23% { transform: translateX(-50%) rotate(45deg) scale(0.82); opacity: 0.65; }
-  10% { transform: translateX(-50%) rotate(45deg) scale(1.16); opacity: 1; }
-  25% { transform: translateX(-50%) rotate(45deg) scale(0.9); opacity: 0.65; }
+/* THINKING: eyes scan left/right.
+   PLANNING: narrow and focus.
+   IMPLEMENTING: bright and steady.
+   REVIEWING: slightly narrow and look toward the review pane. */
+@keyframes pro-eye-state {
+  0% { transform: translateX(-3px) scaleY(0.74); }
+  7% { transform: translateX(3px) scaleY(0.74); }
+  14% { transform: translateX(-2px) scaleY(0.74); }
+  21%, 24.9% { transform: translateX(2px) scaleY(0.74); }
+
+  25% { transform: translateX(0) scaleY(0.52); }
+  37% { transform: translateX(0) scaleY(0.68); }
+  49.9% { transform: translateX(0) scaleY(0.52); }
+
+  50% { transform: translateX(0) scaleY(1); opacity: 0.94; }
+  57% { transform: translateX(0) scaleY(0.82); opacity: 1; }
+  64% { transform: translateX(0) scaleY(1); opacity: 0.94; }
+  74.9% { transform: translateX(0) scaleY(0.9); opacity: 1; }
+
+  75% { transform: translateX(2px) scaleY(0.78); }
+  86% { transform: translateX(4px) scaleY(0.78); }
+  99.9% { transform: translateX(2px) scaleY(0.78); }
+  100% { transform: translateX(-3px) scaleY(0.74); }
+}
+
+@keyframes pro-core-state {
+  0%, 24.9% { transform: translateX(-50%) rotate(45deg) scale(0.78); opacity: 0.62; }
+  8% { transform: translateX(-50%) rotate(45deg) scale(1.18); opacity: 1; }
+  17% { transform: translateX(-50%) rotate(45deg) scale(0.86); opacity: 0.72; }
+
+  25% { transform: translateX(-50%) rotate(45deg) scale(0.9); opacity: 0.7; }
   36% { transform: translateX(-50%) rotate(135deg) scale(1.04); opacity: 1; }
-  47% { transform: translateX(-50%) rotate(225deg) scale(0.9); opacity: 0.72; }
-  50%, 72% { transform: translateX(-50%) rotate(45deg) scale(1.12); opacity: 1; }
-  61% { transform: translateX(-50%) rotate(45deg) scale(0.82); opacity: 0.58; }
-  75%, 97% { transform: translateX(-50%) rotate(45deg) scale(0.88); opacity: 0.68; }
-  100% { transform: translateX(-50%) rotate(45deg) scale(0.82); opacity: 0.65; }
+  49.9% { transform: translateX(-50%) rotate(225deg) scale(0.9); opacity: 0.72; }
+
+  50% { transform: translateX(-50%) rotate(45deg) scale(1.16); opacity: 1; }
+  58% { transform: translateX(-50%) rotate(45deg) scale(0.8); opacity: 0.58; }
+  66% { transform: translateX(-50%) rotate(45deg) scale(1.16); opacity: 1; }
+  74.9% { transform: translateX(-50%) rotate(45deg) scale(0.9); opacity: 0.72; }
+
+  75%, 99.9% { transform: translateX(-50%) rotate(45deg) scale(0.86); opacity: 0.62; }
+  100% { transform: translateX(-50%) rotate(45deg) scale(0.78); opacity: 0.62; }
 }
 
-@keyframes pro-console-cycle {
-  0%, 48% { opacity: 0; transform: translateX(-50%) perspective(90px) rotateX(58deg) translateY(5px); }
-  51%, 70% { opacity: 0.72; transform: translateX(-50%) perspective(90px) rotateX(58deg) translateY(0); }
-  57%, 64% { opacity: 1; filter: drop-shadow(0 0 7px var(--accent)); }
-  73%, 100% { opacity: 0; transform: translateX(-50%) perspective(90px) rotateX(58deg) translateY(5px); }
+@keyframes pro-thinking-node-state {
+  0% { opacity: 0; transform: scale(0.7); }
+  4% { opacity: 0.9; transform: scale(1); }
+  11% { opacity: 0.35; transform: scale(0.78); }
+  18% { opacity: 1; transform: scale(1.18); }
+  23% { opacity: 0.45; transform: scale(0.84); }
+  24.9%, 100% { opacity: 0; transform: scale(0.7); }
 }
 
-@keyframes pro-review-scan {
+@keyframes pro-planning-panel-state {
+  0%, 24% { opacity: 0; transform: translateY(5px) scale(0.94); }
+  27% { opacity: 0.82; transform: translateY(0) scale(1); }
+  36% { opacity: 1; transform: translateY(-2px) scale(1.02); }
+  47% { opacity: 0.8; transform: translateY(0) scale(1); }
+  49.9%, 100% { opacity: 0; transform: translateY(5px) scale(0.94); }
+}
+
+@keyframes pro-console-state {
+  0%, 49% { opacity: 0; transform: translateX(-50%) perspective(100px) rotateX(58deg) translateY(6px); }
+  52% { opacity: 0.78; transform: translateX(-50%) perspective(100px) rotateX(58deg) translateY(0); }
+  58% { opacity: 1; filter: drop-shadow(0 0 7px var(--accent)); }
+  64% { opacity: 0.7; filter: drop-shadow(0 0 2px var(--accent)); }
+  70% { opacity: 1; filter: drop-shadow(0 0 7px var(--accent)); }
+  73% { opacity: 0.78; }
+  74.9%, 100% { opacity: 0; transform: translateX(-50%) perspective(100px) rotateX(58deg) translateY(6px); }
+}
+
+@keyframes pro-code-stream-state {
+  0%, 49% { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  52% { opacity: 0.55; transform: translateX(-50%) translateY(7px); }
+  60% { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+  68% { opacity: 0.72; transform: translateX(-50%) translateY(-13px); }
+  73% { opacity: 0.35; transform: translateX(-50%) translateY(-19px); }
+  74.9%, 100% { opacity: 0; transform: translateX(-50%) translateY(-22px); }
+}
+
+@keyframes pro-review-scan-state {
   0%, 74% { top: 59px; opacity: 0; }
-  77% { opacity: 0.86; }
-  84% { top: 84px; opacity: 0.72; }
-  92% { top: 104px; opacity: 0.52; }
+  77% { top: 59px; opacity: 0.9; }
+  84% { top: 80px; opacity: 0.74; }
+  92% { top: 101px; opacity: 0.54; }
   98%, 100% { top: 104px; opacity: 0; }
+}
+
+@keyframes pro-review-panel-state {
+  0%, 74% { opacity: 0; transform: translateY(5px) scale(0.94); }
+  77% { opacity: 0.82; transform: translateY(0) scale(1); }
+  86% { opacity: 1; transform: translateY(-2px) scale(1.02); }
+  96% { opacity: 0.75; transform: translateY(0) scale(1); }
+  99.9%, 100% { opacity: 0; transform: translateY(5px) scale(0.94); }
 }
 
 @keyframes pro-platform {
@@ -379,19 +542,21 @@
   50% {
     transform: translateX(-50%) scale(1.06);
     opacity: 0.68;
-    box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 18%, transparent), inset 0 0 12px color-mix(in srgb, var(--accent) 10%, transparent);
+    box-shadow:
+      0 0 22px color-mix(in srgb, var(--accent) 18%, transparent),
+      inset 0 0 12px color-mix(in srgb, var(--accent) 10%, transparent);
   }
 }
 
-@keyframes pro-state-cycle {
-  0%, 23.9% {
+@keyframes pro-state-highlight {
+  0%, 24.9% {
     opacity: 1;
     color: var(--accent);
     border-color: color-mix(in srgb, var(--accent) 78%, var(--text));
     background: color-mix(in srgb, var(--accent) 8%, var(--panel));
     box-shadow: 0 0 16px var(--glow), inset 0 0 13px color-mix(in srgb, var(--accent) 4%, transparent);
   }
-  24%, 100% {
+  25%, 100% {
     opacity: 0.4;
     color: color-mix(in srgb, var(--accent) 52%, var(--muted));
     border-color: var(--line);
@@ -411,12 +576,8 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 760px) {
-  .portfolio-shell .ai-core {
-    transform: scale(0.92);
-  }
-
-  .portfolio-shell .tag-two { right: -43px; }
-  .portfolio-shell .tag-three { left: -39px; }
+  .portfolio-shell .tag-two { right: 0; }
+  .portfolio-shell .tag-three { left: 0; }
 
   .portfolio-shell .hud-tag,
   .portfolio-shell .hud::after {
@@ -429,6 +590,9 @@
   .portfolio-shell .hud::after {
     font-size: 7px;
   }
+
+  .portfolio-shell .pulse-one::before { left: -43px; }
+  .portfolio-shell .pulse-two::after { right: -58px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -439,13 +603,21 @@
   .portfolio-shell .ai-core-text span::before,
   .portfolio-shell .ai-core-text span::after,
   .portfolio-shell .ai-core .pulse,
+  .portfolio-shell .pulse-one::before,
+  .portfolio-shell .pulse-one::after,
+  .portfolio-shell .pulse-two::before,
+  .portfolio-shell .pulse-two::after,
   .portfolio-shell .hud-tag,
   .portfolio-shell .hud::after {
     animation: none !important;
   }
 
+  .portfolio-shell .ai-core-text::after,
   .portfolio-shell .ai-core-text span::after,
-  .portfolio-shell .ai-core-text::after {
+  .portfolio-shell .pulse-one::before,
+  .portfolio-shell .pulse-one::after,
+  .portfolio-shell .pulse-two::before,
+  .portfolio-shell .pulse-two::after {
     opacity: 0 !important;
   }
 
