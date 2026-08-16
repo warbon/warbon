@@ -4,6 +4,8 @@ const projectsMarkup = `
     <div><dt>LeagueFlow</dt><dd>Basketball SaaS · <a class="accent-text" href="https://leagueflowapp.io" target="_blank" rel="noopener noreferrer" aria-label="Open LeagueFlow live site">live ↗</a></dd></div>
     <div><dt>Scholiyo</dt><dd>School SaaS</dd></div>
     <div><dt>Nonix</dt><dd>AI agent workspace</dd></div>
+    <div><dt>ZEER Solar</dt><dd>Solar solutions · <a class="accent-text" href="https://www.zeersolar.com/" target="_blank" rel="noopener noreferrer" aria-label="Open ZEER Solar live site">live ↗</a></dd></div>
+    <div><dt>ACWare</dt><dd>Software services · <a class="accent-text" href="https://acware.org/" target="_blank" rel="noopener noreferrer" aria-label="Open ACWare live site">live ↗</a></dd></div>
     <div><dt>status</dt><dd class="accent-text">building</dd></div>
   </dl>
 `
