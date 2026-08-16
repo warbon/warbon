@@ -1,0 +1,454 @@
+/* Animated AI Agent Core
+ * Visual-only override for the existing hero AI HUD.
+ * Keeps the portfolio layout and markup intact while replacing the AI CORE
+ * typography with a compact animated bot and cycling activity states.
+ */
+
+.portfolio-shell .ai-visual {
+  overflow: visible;
+}
+
+.portfolio-shell .hud {
+  overflow: visible;
+}
+
+/* Keep the existing orbital HUD, but make it feel more like an active agent. */
+.portfolio-shell .ring-outer {
+  opacity: 0.52;
+  animation-duration: 34s;
+}
+
+.portfolio-shell .ring-mid {
+  opacity: 0.76;
+  box-shadow: inset 0 0 28px color-mix(in srgb, var(--accent) 4%, transparent);
+}
+
+.portfolio-shell .ring-inner {
+  opacity: 0.58;
+  animation-duration: 17s;
+}
+
+.portfolio-shell .orbit-one {
+  animation-duration: 14s;
+}
+
+.portfolio-shell .orbit-two {
+  animation-duration: 9s;
+}
+
+.portfolio-shell .satellite {
+  box-shadow:
+    0 0 12px var(--accent),
+    0 0 30px var(--glow),
+    0 0 42px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   AI BOT
+   -------------------------------------------------------------------------- */
+
+.portfolio-shell .ai-core {
+  width: 152px;
+  height: 126px;
+  border: 1px solid color-mix(in srgb, var(--accent) 76%, var(--text));
+  border-radius: 46% 46% 43% 43% / 48% 48% 42% 42%;
+  background:
+    radial-gradient(circle at 50% 18%, color-mix(in srgb, var(--text) 15%, transparent), transparent 32%),
+    linear-gradient(160deg,
+      color-mix(in srgb, var(--accent) 24%, var(--panel-2)) 0%,
+      color-mix(in srgb, var(--panel) 86%, black) 54%,
+      color-mix(in srgb, var(--accent) 12%, var(--panel)) 100%);
+  box-shadow:
+    0 0 18px color-mix(in srgb, var(--accent) 22%, transparent),
+    0 0 54px var(--glow),
+    inset 0 0 28px color-mix(in srgb, var(--accent) 8%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--text) 18%, transparent);
+  animation: agent-bot-float 4.4s ease-in-out infinite;
+  transform-origin: 50% 60%;
+}
+
+/* Side ear modules. */
+.portfolio-shell .ai-core::before,
+.portfolio-shell .ai-core::after {
+  content: "";
+  position: absolute;
+  top: 36px;
+  width: 21px;
+  height: 51px;
+  border: 1px solid color-mix(in srgb, var(--accent) 70%, var(--text));
+  border-radius: 45% 45% 45% 45%;
+  background:
+    linear-gradient(90deg,
+      color-mix(in srgb, var(--accent) 28%, var(--panel-2)),
+      color-mix(in srgb, var(--panel) 82%, black),
+      color-mix(in srgb, var(--accent) 18%, var(--panel)));
+  box-shadow:
+    0 0 16px var(--glow),
+    inset 0 0 12px color-mix(in srgb, var(--accent) 12%, transparent);
+  opacity: 1;
+}
+
+.portfolio-shell .ai-core::before {
+  left: -15px;
+}
+
+.portfolio-shell .ai-core::after {
+  right: -15px;
+}
+
+/* Face plate. Existing text nodes are retained for accessibility/DOM stability,
+   but visually converted into eyes and a smile. */
+.portfolio-shell .ai-core-text {
+  position: relative;
+  display: block;
+  width: 108px;
+  height: 72px;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 43% 43% 47% 47% / 46% 46% 45% 45%;
+  background:
+    radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 55%),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg) 96%, black), #000 115%);
+  box-shadow:
+    inset 0 0 24px color-mix(in srgb, var(--accent) 9%, transparent),
+    0 0 16px color-mix(in srgb, var(--accent) 8%, transparent);
+  overflow: visible;
+}
+
+.portfolio-shell .ai-core-text strong,
+.portfolio-shell .ai-core-text span {
+  position: static;
+  margin: 0 !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  letter-spacing: 0 !important;
+  text-indent: 0 !important;
+}
+
+/* Antenna stem. */
+.portfolio-shell .ai-core-text::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -29px;
+  width: 2px;
+  height: 22px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 25%, transparent));
+  box-shadow: 0 0 8px var(--glow);
+}
+
+/* Antenna light. */
+.portfolio-shell .ai-core-text::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -39px;
+  width: 12px;
+  height: 12px;
+  transform: translateX(-50%);
+  border: 1px solid color-mix(in srgb, var(--accent) 70%, var(--text));
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 9px var(--accent), 0 0 22px var(--glow);
+  animation: agent-antenna 1.8s ease-in-out infinite;
+}
+
+/* Eyes. */
+.portfolio-shell .ai-core-text strong::before,
+.portfolio-shell .ai-core-text strong::after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  width: 15px;
+  height: 23px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow:
+    0 0 10px var(--accent),
+    0 0 20px var(--glow);
+  animation: agent-eye-blink 5.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.portfolio-shell .ai-core-text strong::before {
+  left: 24px;
+}
+
+.portfolio-shell .ai-core-text strong::after {
+  right: 24px;
+  animation-delay: 0.08s;
+}
+
+/* Smile. */
+.portfolio-shell .ai-core-text span::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 13px;
+  width: 28px;
+  height: 12px;
+  transform: translateX(-50%);
+  border-bottom: 2px solid var(--accent);
+  border-radius: 0 0 28px 28px;
+  filter: drop-shadow(0 0 4px var(--glow));
+  animation: agent-smile 4.4s ease-in-out infinite;
+}
+
+/* Convert the original pulse rings into the holographic platform below the bot. */
+.portfolio-shell .ai-core .pulse {
+  top: auto;
+  right: auto;
+  bottom: -54px;
+  left: 50%;
+  width: 178px;
+  height: 36px;
+  border: 1px solid color-mix(in srgb, var(--accent) 66%, transparent);
+  border-radius: 50%;
+  opacity: 0.82;
+  transform: translateX(-50%);
+  box-shadow:
+    0 0 15px var(--glow),
+    inset 0 0 12px color-mix(in srgb, var(--accent) 10%, transparent);
+  animation: agent-platform-pulse 2.8s ease-in-out infinite;
+}
+
+.portfolio-shell .ai-core .pulse-two {
+  bottom: -48px;
+  width: 126px;
+  height: 25px;
+  opacity: 0.62;
+  animation-delay: 0.65s;
+}
+
+/* Soft beam from bot to the holographic base. */
+.portfolio-shell .ai-core-text {
+  isolation: isolate;
+}
+
+.portfolio-shell .ai-core-text > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   ACTIVITY BADGES
+   The existing three HUD labels are reused, with one fourth pseudo badge.
+   One state is highlighted every four seconds:
+   THINKING -> PLANNING -> IMPLEMENTING -> REVIEWING -> repeat.
+   -------------------------------------------------------------------------- */
+
+.portfolio-shell .hud-tag,
+.portfolio-shell .hud::after {
+  z-index: 8;
+  min-width: 104px;
+  padding: 7px 11px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: color-mix(in srgb, var(--accent) 78%, var(--text));
+  background: color-mix(in srgb, var(--panel) 92%, transparent);
+  box-shadow: 0 0 0 transparent;
+  font-size: 0;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  opacity: 0.52;
+  animation: agent-state-cycle 16s steps(1, end) infinite;
+}
+
+.portfolio-shell .hud-tag::before,
+.portfolio-shell .hud::after {
+  font-size: 8px;
+}
+
+.portfolio-shell .tag-one {
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 0s;
+}
+
+.portfolio-shell .tag-one::before {
+  content: "◉  THINKING";
+}
+
+.portfolio-shell .tag-two {
+  top: 118px;
+  right: -32px;
+  animation-delay: -8s;
+}
+
+.portfolio-shell .tag-two::before {
+  content: "</>  IMPLEMENTING";
+}
+
+.portfolio-shell .tag-three {
+  top: 118px;
+  bottom: auto;
+  left: -24px;
+  animation-delay: -12s;
+}
+
+.portfolio-shell .tag-three::before {
+  content: "⌘  PLANNING";
+}
+
+.portfolio-shell .hud::after {
+  content: "⌕  REVIEWING";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: -4s;
+}
+
+/* Small animated ellipsis on the three real label elements. */
+.portfolio-shell .hud-tag::after {
+  content: " ···";
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--accent);
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  animation: agent-dots 1.25s steps(4, end) infinite;
+}
+
+/* --------------------------------------------------------------------------
+   MOTION
+   -------------------------------------------------------------------------- */
+
+@keyframes agent-bot-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-0.35deg);
+    filter: brightness(0.98);
+  }
+  50% {
+    transform: translateY(-7px) rotate(0.35deg);
+    filter: brightness(1.08);
+  }
+}
+
+@keyframes agent-antenna {
+  0%, 100% {
+    transform: translateX(-50%) scale(0.82);
+    opacity: 0.62;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes agent-eye-blink {
+  0%, 43%, 47%, 75%, 79%, 100% { transform: scaleY(1); }
+  45%, 77% { transform: scaleY(0.08); }
+}
+
+@keyframes agent-smile {
+  0%, 100% { width: 28px; opacity: 0.76; }
+  50% { width: 34px; opacity: 1; }
+}
+
+@keyframes agent-platform-pulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(0.88);
+    opacity: 0.38;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+    opacity: 0.9;
+    box-shadow: 0 0 24px var(--glow), inset 0 0 15px color-mix(in srgb, var(--accent) 14%, transparent);
+  }
+}
+
+@keyframes agent-state-cycle {
+  0%, 23.9% {
+    opacity: 1;
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 76%, var(--text));
+    background: color-mix(in srgb, var(--accent) 11%, var(--panel));
+    box-shadow:
+      0 0 15px var(--glow),
+      inset 0 0 14px color-mix(in srgb, var(--accent) 5%, transparent);
+  }
+  24%, 100% {
+    opacity: 0.48;
+    color: color-mix(in srgb, var(--accent) 56%, var(--muted));
+    border-color: var(--line);
+    background: color-mix(in srgb, var(--panel) 92%, transparent);
+    box-shadow: 0 0 0 transparent;
+  }
+}
+
+@keyframes agent-dots {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.35; }
+}
+
+/* Give the bot a tiny "processing" shimmer without affecting the rest of the page. */
+.portfolio-shell .ai-core {
+  overflow: visible;
+}
+
+.portfolio-shell .ai-core-text {
+  animation: agent-face-glow 3s ease-in-out infinite;
+}
+
+@keyframes agent-face-glow {
+  0%, 100% {
+    box-shadow:
+      inset 0 0 20px color-mix(in srgb, var(--accent) 7%, transparent),
+      0 0 12px color-mix(in srgb, var(--accent) 7%, transparent);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 28px color-mix(in srgb, var(--accent) 13%, transparent),
+      0 0 24px color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+}
+
+/* The original AI / CORE characters should not leak through the bot face. */
+.portfolio-shell .ai-core-text strong,
+.portfolio-shell .ai-core-text span {
+  user-select: none;
+}
+
+@media (max-width: 760px) {
+  .portfolio-shell .tag-two {
+    right: -44px;
+  }
+
+  .portfolio-shell .tag-three {
+    left: -38px;
+  }
+
+  .portfolio-shell .hud-tag,
+  .portfolio-shell .hud::after {
+    min-width: 96px;
+    padding: 6px 9px;
+  }
+
+  .portfolio-shell .hud-tag::before,
+  .portfolio-shell .hud-tag::after,
+  .portfolio-shell .hud::after {
+    font-size: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-shell .tag-one {
+    opacity: 1;
+    color: var(--accent);
+    border-color: var(--line-strong);
+    background: color-mix(in srgb, var(--accent) 10%, var(--panel));
+  }
+
+  .portfolio-shell .tag-two,
+  .portfolio-shell .tag-three,
+  .portfolio-shell .hud::after {
+    opacity: 0.5;
+  }
+}
