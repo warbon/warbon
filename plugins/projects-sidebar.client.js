@@ -10,6 +10,21 @@ const projectsMarkup = `
   </dl>
 `
 
+const textReplacements = [
+  ['wilfredo@portfolio:', 'warbon@portfolio:'],
+  ['2024 → Present / Sansan Global Development Center', '2024 → Present / Current Employer [PRIVATE]'],
+  [
+    'Senior Software Engineer — product design and development, stakeholder collaboration, feature delivery, testing, debugging, code reviews and maintenance.',
+    'Senior Software Engineer — Employer identity intentionally not publicly disclosed.'
+  ],
+  [' Senior Software Engineer at Sansan Global Development Center.', ' Senior Software Engineer · Employer [PRIVATE].'],
+  [
+    'Wilfredo has been a Senior Software Engineer at Sansan Global Development Center since January 2024.',
+    'Wilfredo has been a Senior Software Engineer since January 2024. Current employer identity is intentionally not publicly disclosed.'
+  ],
+  ['Sansan Global Development Center', 'Current Employer [PRIVATE]']
+]
+
 function replaceRuntimeProfile(attempt = 0) {
   const cards = Array.from(document.querySelectorAll('.side-card'))
   const runtimeCard = cards.find((card) => {
@@ -27,39 +42,48 @@ function replaceRuntimeProfile(attempt = 0) {
   }
 }
 
-function replacePortfolioPrompt(root = document) {
+function replacePublicTextValue(value) {
+  return textReplacements.reduce((result, replacement) => {
+    return result.split(replacement[0]).join(replacement[1])
+  }, value)
+}
+
+function replacePublicText(root = document) {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
   const nodes = []
   let node = walker.nextNode()
 
   while (node) {
-    if (node.nodeValue && node.nodeValue.includes('wilfredo@portfolio:')) nodes.push(node)
+    const replaced = node.nodeValue ? replacePublicTextValue(node.nodeValue) : node.nodeValue
+    if (replaced !== node.nodeValue) nodes.push({ node, replaced })
     node = walker.nextNode()
   }
 
-  nodes.forEach((textNode) => {
-    textNode.nodeValue = textNode.nodeValue.replace(/wilfredo@portfolio:/g, 'warbon@portfolio:')
+  nodes.forEach(({ node: textNode, replaced }) => {
+    textNode.nodeValue = replaced
   })
 }
 
-function watchPortfolioPrompt() {
-  replacePortfolioPrompt()
+function watchPublicText() {
+  replacePublicText()
 
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
-      if (mutation.type === 'characterData' && mutation.target.nodeValue && mutation.target.nodeValue.includes('wilfredo@portfolio:')) {
-        mutation.target.nodeValue = mutation.target.nodeValue.replace(/wilfredo@portfolio:/g, 'warbon@portfolio:')
+      if (mutation.type === 'characterData' && mutation.target.nodeValue) {
+        const replaced = replacePublicTextValue(mutation.target.nodeValue)
+        if (replaced !== mutation.target.nodeValue) mutation.target.nodeValue = replaced
       }
 
       mutation.addedNodes.forEach((node) => {
         if (node.nodeType === Node.TEXT_NODE) {
-          if (node.nodeValue && node.nodeValue.includes('wilfredo@portfolio:')) {
-            node.nodeValue = node.nodeValue.replace(/wilfredo@portfolio:/g, 'warbon@portfolio:')
+          if (node.nodeValue) {
+            const replaced = replacePublicTextValue(node.nodeValue)
+            if (replaced !== node.nodeValue) node.nodeValue = replaced
           }
           return
         }
 
-        if (node.nodeType === Node.ELEMENT_NODE) replacePortfolioPrompt(node)
+        if (node.nodeType === Node.ELEMENT_NODE) replacePublicText(node)
       })
     })
   })
@@ -74,10 +98,10 @@ function watchPortfolioPrompt() {
 export default ({ app }) => {
   const render = () => window.setTimeout(() => {
     replaceRuntimeProfile()
-    replacePortfolioPrompt()
+    replacePublicText()
   }, 0)
 
   render()
-  watchPortfolioPrompt()
+  watchPublicText()
   app.router.afterEach(render)
 }
