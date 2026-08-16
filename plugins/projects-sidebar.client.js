@@ -1,7 +1,7 @@
 const projectsMarkup = `
   <div class="eyebrow">projects</div>
   <dl class="runtime-list">
-    <div><dt>LeagueFlow</dt><dd>Basketball SaaS</dd></div>
+    <div><dt>LeagueFlow</dt><dd>Basketball SaaS · <a class="accent-text" href="https://leagueflowapp.io" target="_blank" rel="noopener noreferrer" aria-label="Open LeagueFlow live site">live ↗</a></dd></div>
     <div><dt>Scholiyo</dt><dd>School SaaS</dd></div>
     <div><dt>Nonix</dt><dd>AI agent workspace</dd></div>
     <div><dt>status</dt><dd class="accent-text">building</dd></div>
