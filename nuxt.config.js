@@ -22,6 +22,10 @@ export default {
     ]
   },
 
+  css: [
+    '~/assets/ai-agent.css'
+  ],
+
   components: false,
 
   buildModules: [],
