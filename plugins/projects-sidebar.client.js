@@ -27,9 +27,57 @@ function replaceRuntimeProfile(attempt = 0) {
   }
 }
 
+function replacePortfolioPrompt(root = document) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
+  const nodes = []
+  let node = walker.nextNode()
+
+  while (node) {
+    if (node.nodeValue && node.nodeValue.includes('wilfredo@portfolio:')) nodes.push(node)
+    node = walker.nextNode()
+  }
+
+  nodes.forEach((textNode) => {
+    textNode.nodeValue = textNode.nodeValue.replace(/wilfredo@portfolio:/g, 'warbon@portfolio:')
+  })
+}
+
+function watchPortfolioPrompt() {
+  replacePortfolioPrompt()
+
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'characterData' && mutation.target.nodeValue && mutation.target.nodeValue.includes('wilfredo@portfolio:')) {
+        mutation.target.nodeValue = mutation.target.nodeValue.replace(/wilfredo@portfolio:/g, 'warbon@portfolio:')
+      }
+
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          if (node.nodeValue && node.nodeValue.includes('wilfredo@portfolio:')) {
+            node.nodeValue = node.nodeValue.replace(/wilfredo@portfolio:/g, 'warbon@portfolio:')
+          }
+          return
+        }
+
+        if (node.nodeType === Node.ELEMENT_NODE) replacePortfolioPrompt(node)
+      })
+    })
+  })
+
+  observer.observe(document.body, {
+    childList: true,
+    characterData: true,
+    subtree: true
+  })
+}
+
 export default ({ app }) => {
-  const render = () => window.setTimeout(() => replaceRuntimeProfile(), 0)
+  const render = () => window.setTimeout(() => {
+    replaceRuntimeProfile()
+    replacePortfolioPrompt()
+  }, 0)
 
   render()
+  watchPortfolioPrompt()
   app.router.afterEach(render)
 }
