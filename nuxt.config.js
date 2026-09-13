@@ -26,9 +26,7 @@ export default {
     '~/assets/ai-agent.css'
   ],
 
-  plugins: [
-    '~/plugins/projects-sidebar.client.js'
-  ],
+  plugins: [],
 
   components: false,
 

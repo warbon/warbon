@@ -30,7 +30,7 @@
         <span></span><span></span><span></span>
       </div>
 
-      <div class="host-path">wilfredo@portfolio: ~/interactive-profile</div>
+      <div class="host-path">warbon@portfolio: ~/interactive-profile</div>
 
       <div class="topbar-actions">
         <div class="system-online"><i></i> AI ONLINE</div>
@@ -148,7 +148,7 @@
           </div>
 
           <div class="terminal-input-row">
-            <span class="input-prefix">wilfredo@portfolio:~$</span>
+            <span class="input-prefix">warbon@portfolio:~$</span>
             <input
               ref="commandInput"
               v-model="commandInput"
@@ -191,13 +191,14 @@
         </section>
 
         <section class="side-card reveal reveal-4">
-          <div class="eyebrow">runtime profile</div>
+          <div class="eyebrow">projects</div>
           <dl class="runtime-list">
-            <div><dt>current role</dt><dd>Senior Software Engineer</dd></div>
-            <div><dt>company</dt><dd>Sansan Global Development Center</dd></div>
-            <div><dt>since</dt><dd>Jan 2024</dd></div>
-            <div><dt>experience</dt><dd>15+ years</dd></div>
-            <div><dt>status</dt><dd class="accent-text">online</dd></div>
+            <div><dt>LeagueFlow</dt><dd>Basketball SaaS · <a class="accent-text" href="https://leagueflowapp.io" target="_blank" rel="noopener noreferrer" aria-label="Open LeagueFlow live site">live ↗</a></dd></div>
+            <div><dt>Scholiyo</dt><dd>School SaaS</dd></div>
+            <div><dt>Nonix</dt><dd>AI agent workspace</dd></div>
+            <div><dt>ZEER Solar</dt><dd>Solar solutions · <a class="accent-text" href="https://www.zeersolar.com/" target="_blank" rel="noopener noreferrer" aria-label="Open ZEER Solar live site">live ↗</a></dd></div>
+            <div><dt>ACWare</dt><dd>Software services · <a class="accent-text" href="https://acware.org/" target="_blank" rel="noopener noreferrer" aria-label="Open ACWare live site">live ↗</a></dd></div>
+            <div><dt>status</dt><dd class="accent-text">building</dd></div>
           </dl>
         </section>
 
@@ -222,7 +223,7 @@
     <footer class="footerbar">
       <span>● PROFILE: CV + CURRENT PROJECTS</span>
       <span class="accent-text">DESIGN → BUILD → TEST → DELIVER → IMPROVE</span>
-      <a href="mailto:warbon@acware.tech">warbon@acware.tech</a>
+      <a href="mailto:wilfredo@acware.org">wilfredo@acware.org</a>
     </footer>
   </div>
 </template>
@@ -667,7 +668,7 @@ export default {
 
       this.commandHistory.push(text)
       this.historyIndex = -1
-      this.appendTerminal('wilfredo@portfolio:~$ ' + this.escapeHtml(text), 'command-line')
+      this.appendTerminal('warbon@portfolio:~$ ' + this.escapeHtml(text), 'command-line')
 
       const pieces = text.split(/\s+/)
       const base = pieces[0].toLowerCase()
@@ -760,11 +761,11 @@ export default {
           '<span class="bright-text">profile.md</span>',
           '15+ years of software development experience with deep Microsoft-stack experience and broad exposure to modern open-source technologies.',
           'I build production software, translate user needs into technical solutions, improve existing systems, and work comfortably across software and infrastructure.',
-          '<span class="accent-text">Current:</span> Senior Software Engineer at Sansan Global Development Center.'
+          '<span class="accent-text">Current:</span> Senior Software Engineer · Employer [PRIVATE].'
         ],
         experience: [
           '<span class="bright-text">experience.log</span>',
-          '<div class="terminal-record"><strong>2024 → Present / Sansan Global Development Center</strong><br>Senior Software Engineer — product design and development, stakeholder collaboration, feature delivery, testing, debugging, code reviews and maintenance.</div>',
+          '<div class="terminal-record"><strong>2024 → Present / Current Employer [PRIVATE]</strong><br>Senior Software Engineer — Employer identity intentionally not publicly disclosed.</div>',
           '<div class="terminal-record"><strong>Oct 2023 → Dec 2023 / EQHO AI</strong><br>Backend Developer — integrated Google Calendar API and OpenAI API using Python; implemented event scheduling and natural-language features.</div>',
           '<div class="terminal-record"><strong>2007 → 2023 / Tsuneishi Technical Services (Phils.)</strong><br>Software Developer → Assistant IT Supervisor / Software Developer → IT Supervisor / Software Developer. Built in-house applications and supervised developers, servers, networks, backups and VMware infrastructure.</div>',
           '<div class="terminal-record"><strong>2004 → 2007 / Gaisano Main, Inc.</strong><br>Software Developer — developed and maintained in-house applications and store servers.</div>'
@@ -805,7 +806,7 @@ export default {
         ],
         contact: [
           '<span class="bright-text">contact --public</span>',
-          'email    → <a href="mailto:warbon@acware.tech">warbon@acware.tech</a>',
+          'email    → <a href="mailto:wilfredo@acware.org">wilfredo@acware.org</a>',
           'github   → <a href="https://github.com/warbon" target="_blank" rel="noopener">github.com/warbon</a>',
           'linkedin → <a href="https://www.linkedin.com/in/wilfredo-arbon" target="_blank" rel="noopener">linkedin.com/in/wilfredo-arbon</a>',
           'website  → <a href="https://warbon.dev" target="_blank" rel="noopener">warbon.dev</a>',
@@ -832,8 +833,8 @@ export default {
       if (query.includes('backend') || query.includes('api')) {
         return 'His backend experience spans ASP.NET Web API, .NET Core, Python/FastAPI, Kotlin/Ktor, REST APIs, SQL databases and third-party API integrations.'
       }
-      if (query.includes('current') || query.includes('sansan')) {
-        return 'Wilfredo has been a Senior Software Engineer at Sansan Global Development Center since January 2024.'
+      if (query.includes('current')) {
+        return 'Wilfredo has been a Senior Software Engineer since January 2024. Current employer identity is intentionally not publicly disclosed.'
       }
       if (query.includes('project') || query.includes('product')) {
         return 'Current product work includes LeagueFlow, Scholiyo and Nonix, covering sports SaaS, school SaaS and local-first AI developer tooling.'
