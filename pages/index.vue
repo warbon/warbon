@@ -194,7 +194,7 @@
           <div class="eyebrow">projects</div>
           <dl class="runtime-list">
             <div><dt>LeagueFlow</dt><dd>Basketball SaaS · <a class="accent-text" href="https://leagueflowapp.io" target="_blank" rel="noopener noreferrer" aria-label="Open LeagueFlow live site">live ↗</a></dd></div>
-            <div><dt>Scholiyo</dt><dd>School SaaS</dd></div>
+            <div><dt>Scholiyo</dt><dd>School SaaS · <a class="accent-text" href="https://scholiyo.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Scholiyo live site">live ↗</a></dd></div>
             <div><dt>Nonix</dt><dd>AI agent workspace</dd></div>
             <div><dt>ZEER Solar</dt><dd>Solar solutions · <a class="accent-text" href="https://www.zeersolar.com/" target="_blank" rel="noopener noreferrer" aria-label="Open ZEER Solar live site">live ↗</a></dd></div>
             <div><dt>ACWare</dt><dd>Software services · <a class="accent-text" href="https://acware.org/" target="_blank" rel="noopener noreferrer" aria-label="Open ACWare live site">live ↗</a></dd></div>
@@ -223,7 +223,10 @@
     <footer class="footerbar">
       <span>● PROFILE: CV + CURRENT PROJECTS</span>
       <span class="accent-text">DESIGN → BUILD → TEST → DELIVER → IMPROVE</span>
-      <a href="mailto:wilfredo@acware.org">wilfredo@acware.org</a>
+      <div class="footer-contacts">
+        <a href="mailto:warbon@acware.org">warbon@acware.org</a>
+        <a href="mailto:wilfredo.jr.arbon@outlook.com">wilfredo.jr.arbon@outlook.com</a>
+      </div>
     </footer>
   </div>
 </template>
@@ -782,7 +785,7 @@ export default {
         projects: [
           '<span class="bright-text">projects --selected</span>',
           '<div class="terminal-record"><strong>LeagueFlow</strong><br>Basketball league management platform for organizations, teams, schedules, standings, game results and public league experiences.<br><span class="terminal-tags">SaaS · Next.js · PostgreSQL</span></div>',
-          '<div class="terminal-record"><strong>Scholiyo</strong><br>End-to-end school SaaS platform designed around school operations, attendance and parent/student experiences.<br><span class="terminal-tags">Next.js · React Native · SaaS</span></div>',
+          '<div class="terminal-record"><strong>Scholiyo</strong> · <a href="https://scholiyo.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Scholiyo live site">live ↗</a><br>End-to-end school SaaS platform designed around school operations, attendance and parent/student experiences.<br><span class="terminal-tags">Next.js · React Native · SaaS</span></div>',
           '<div class="terminal-record"><strong>Nonix</strong><br>Local-first AI coding-agent workspace and monitoring environment for multi-agent development workflows.<br><span class="terminal-tags">AI tooling · local-first · developer experience</span></div>'
         ],
         certs: [
@@ -806,7 +809,8 @@ export default {
         ],
         contact: [
           '<span class="bright-text">contact --public</span>',
-          'email    → <a href="mailto:wilfredo@acware.org">wilfredo@acware.org</a>',
+          'email1   → <a href="mailto:warbon@acware.org">warbon@acware.org</a>',
+          'email2   → <a href="mailto:wilfredo.jr.arbon@outlook.com">wilfredo.jr.arbon@outlook.com</a>',
           'github   → <a href="https://github.com/warbon" target="_blank" rel="noopener">github.com/warbon</a>',
           'linkedin → <a href="https://www.linkedin.com/in/wilfredo-arbon" target="_blank" rel="noopener">linkedin.com/in/wilfredo-arbon</a>',
           'website  → <a href="https://warbon.dev" target="_blank" rel="noopener">warbon.dev</a>',
@@ -1843,8 +1847,10 @@ input {
   justify-self: center;
 }
 
-.footerbar a {
-  justify-self: end;
+.footer-contacts {
+  display: grid;
+  justify-items: end;
+  gap: 4px;
 }
 
 .reveal {
@@ -2007,9 +2013,12 @@ input {
     grid-template-columns: 1fr;
   }
 
-  .footerbar span:nth-child(2),
-  .footerbar a {
+  .footerbar span:nth-child(2) {
     justify-self: start;
+  }
+
+  .footer-contacts {
+    justify-items: start;
   }
 }
 
