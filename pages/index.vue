@@ -224,8 +224,8 @@
       <span>● PROFILE: CV + CURRENT PROJECTS</span>
       <span class="accent-text">DESIGN → BUILD → TEST → DELIVER → IMPROVE</span>
       <div class="footer-contacts">
-        <a href="mailto:warbon@acware.org">warbon@acware.org</a>
         <a href="mailto:wilfredo.jr.arbon@outlook.com">wilfredo.jr.arbon@outlook.com</a>
+        <a href="mailto:warbon@acware.org">warbon@acware.org</a>
       </div>
     </footer>
   </div>
@@ -809,8 +809,8 @@ export default {
         ],
         contact: [
           '<span class="bright-text">contact --public</span>',
-          'email1   → <a href="mailto:warbon@acware.org">warbon@acware.org</a>',
-          'email2   → <a href="mailto:wilfredo.jr.arbon@outlook.com">wilfredo.jr.arbon@outlook.com</a>',
+          'email1   → <a href="mailto:wilfredo.jr.arbon@outlook.com">wilfredo.jr.arbon@outlook.com</a>',
+          'email2   → <a href="mailto:warbon@acware.org">warbon@acware.org</a>',
           'github   → <a href="https://github.com/warbon" target="_blank" rel="noopener">github.com/warbon</a>',
           'linkedin → <a href="https://www.linkedin.com/in/wilfredo-arbon" target="_blank" rel="noopener">linkedin.com/in/wilfredo-arbon</a>',
           'website  → <a href="https://warbon.dev" target="_blank" rel="noopener">warbon.dev</a>',
@@ -985,6 +985,7 @@ input {
 }
 
 .topbar {
+  z-index: 11;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
